@@ -54,16 +54,26 @@ assets/
   `shape-organic`, `shape-circle`, `shape-arch` réservées à quelques photos clés.
 - **Tailles de texte** : fluides (`--step-*` dans `variables.css`), pas besoin de media query.
 
-## Mise en ligne (Netlify)
+## Mise en ligne
 
-Déposer le dossier sur Netlify (glisser-déposer sur app.netlify.com ou dépôt Git) : aucune
-commande de build, dossier de publication = racine du site.
+| Élément | Où | Compte |
+|---|---|---|
+| Code source | GitHub `AzurineWeb/azurine` (privé), branche `main` | organisation AzurineWeb |
+| Hébergement | Netlify, déploiement automatique à chaque push sur `main` | compte Netlify de la cliente |
+| Domaine `azurine.fr` + boîte `contact@azurine.fr` | OVH (zone DNS gérée chez OVH) | compte OVH de la cliente |
+
+**Netlify** : pas de commande de build, dossier de publication = racine du dépôt.
+L'application GitHub de Netlify n'a accès qu'au dépôt `azurine` (« Only select repositories »).
 
 - **Formulaire de contact** : détecté automatiquement (`data-netlify="true"` dans
-  `qui-suis-je.html`). Pour recevoir les messages par e-mail : *Site configuration > Forms >
-  Form notifications > Email*. En local, l'envoi ne fonctionne pas : c'est normal.
-- **Nom de domaine** : *Domain management*. Penser à mettre à jour les mentions légales si
-  l'hébergeur change.
+  `qui-suis-je.html`). Notification vers `contact@azurine.fr` : *Project configuration > Forms >
+  Form notifications > Email notification*. En local, l'envoi ne fonctionne pas : c'est normal.
+- **Domaine** : la zone DNS reste chez OVH (pour ne pas toucher aux enregistrements de la
+  messagerie). Chez OVH, `azurine.fr` pointe vers Netlify par un enregistrement **A** et
+  `www.azurine.fr` par un **CNAME** vers `<site>.netlify.app` (valeurs exactes affichées par
+  Netlify dans *Domain management*). Les enregistrements **MX / SPF** d'OVH ne doivent pas être
+  modifiés. Le domaine principal est `azurine.fr` (sans www) : il est écrit en dur dans
+  les balises `canonical` / `og:` de chaque page, dans `sitemap.xml` et dans `robots.txt`.
 
 ## Pages légales
 
