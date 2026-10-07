@@ -700,20 +700,37 @@
 /* ==========================================================================
    4. Pages de soins
    ========================================================================== */
+/* Trois zones : titre, fiche pratique (photo, infos, boutons), texte.
+   Mobile : empilées dans cet ordre. Desktop : titre puis texte à gauche,
+   fiche à droite dès le haut de la page (au niveau du titre). */
 .care-page {
-  padding-bottom: var(--section);
+  padding-block: var(--space-2xl) var(--section);
 }
 
 .care-page__inner {
   display: grid;
-  gap: var(--space-2xl);
+  grid-template-areas:
+    'head'
+    'aside'
+    'text';
+  row-gap: var(--space-xl);
   align-items: start;
 }
 
-/* Colonne pratique : photo, fiche, boutons (en premier sur mobile) */
-.care-page__aside {
+.care-page__head {
+  grid-area: head;
   display: grid;
   gap: var(--space-m);
+}
+
+.care-page__aside {
+  grid-area: aside;
+  display: grid;
+  gap: var(--space-m);
+}
+
+.care-page__text {
+  grid-area: text;
 }
 
 .care-page__image {
@@ -725,31 +742,25 @@
   margin-top: var(--space-2xs);
 }
 
-.care-page__text .callout,
-.care-page__text .health-note {
+.care-page__text .callout {
   margin-top: var(--space-l);
 }
 
 @media (min-width: 921px) {
   .care-page__inner {
     grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-    gap: clamp(48px, 7vw, 120px);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'head aside'
+      'text aside';
+    column-gap: clamp(48px, 7vw, 120px);
+    row-gap: var(--space-xl);
   }
 
+  /* La fiche reste visible en faisant défiler le texte */
   .care-page__aside {
-    grid-column: 2;
-    grid-row: 1;
     position: sticky;
     top: calc(var(--header-height) + var(--space-l));
-  }
-
-  .care-page__text {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .care-page__image {
-    aspect-ratio: 1;
   }
 }
 

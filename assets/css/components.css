@@ -261,8 +261,10 @@
   font-size: var(--step--1);
 }
 
-.callout__title {
-  margin-bottom: var(--space-2xs);
+/* « .callout » en préfixe : l'encart peut être placé dans un .prose, dont les
+   règles de titre (.prose h2 : marge haute, grande taille) ne doivent pas s'appliquer */
+.callout .callout__title {
+  margin: 0 0 var(--space-2xs);
   color: var(--ink);
   font-family: var(--font-text);
   font-size: 1rem;
