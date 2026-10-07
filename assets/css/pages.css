@@ -354,6 +354,71 @@
   }
 }
 
+/* --- Questions fréquentes (<details> natif : fonctionne sans JavaScript) ------------- */
+.faq__title {
+  margin-bottom: var(--space-xl);
+}
+
+.faq__list {
+  border-top: 1px solid var(--line);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq__question {
+  position: relative;
+  display: block;
+  padding: var(--space-m) var(--space-2xl) var(--space-m) 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: var(--lh-snug);
+  list-style: none;
+  cursor: pointer;
+  transition: color var(--dur-fast) ease;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question:hover {
+  color: var(--teal);
+}
+
+/* « + » dessiné en CSS, qui pivote en « × » à l'ouverture */
+.faq__question::before,
+.faq__question::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 16px;
+  height: 1.5px;
+  background: var(--terra);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.faq__question::after {
+  transform: rotate(90deg);
+}
+
+.faq__item[open] .faq__question::before {
+  transform: rotate(45deg);
+}
+
+.faq__item[open] .faq__question::after {
+  transform: rotate(135deg);
+}
+
+.faq__answer {
+  max-width: var(--measure);
+  padding-bottom: var(--space-m);
+  color: var(--ink-soft);
+}
+
 /* --- Appel final à prendre rendez-vous ---------------------------------------------- */
 .closing {
   border-top: 1px solid var(--line);
