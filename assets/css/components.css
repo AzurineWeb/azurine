@@ -1,0 +1,381 @@
+/* ==========================================================================
+   Composants réutilisables
+   ========================================================================== */
+
+/* --- Boutons -------------------------------------------------------------------
+   <a class="btn btn--primary">…</a>
+   Variantes : --primary (terracotta), --outline (filet encre), --light (sur fond sombre).
+   Taille : --small (en-tête). */
+.btn {
+  --btn-bg: var(--terra);
+  --btn-bg-hover: var(--terra-hover);
+  --btn-color: var(--white);
+  --btn-border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  min-height: 52px;
+  padding: 0.8em 1.6em;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease, transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -14px rgba(34, 56, 58, 0.6);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn--primary {
+  --btn-bg: var(--terra);
+  --btn-bg-hover: var(--terra-hover);
+}
+
+.btn--outline {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--ink);
+  --btn-color: var(--ink);
+  --btn-border: var(--ink);
+}
+
+.btn--outline:hover {
+  color: var(--paper);
+}
+
+.btn--light {
+  --btn-bg: var(--paper);
+  --btn-bg-hover: var(--white);
+  --btn-color: var(--teal-deep);
+}
+
+.btn--small {
+  min-height: 44px;
+  padding: 0.6em 1.3em;
+  font-size: 0.95rem;
+}
+
+/* Groupe de boutons / liens d'action */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-l);
+}
+
+/* --- Lien fléché ---------------------------------------------------------------
+   <a class="link-arrow" href="…">Texte <svg class="link-arrow__icon">…</svg></a> */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+}
+
+.link-arrow:hover {
+  color: var(--terra);
+  text-decoration-color: currentColor;
+}
+
+.link-arrow__icon {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.link-arrow:hover .link-arrow__icon {
+  transform: translateX(4px);
+}
+
+/* --- Photos ---------------------------------------------------------------------
+   .media = coins doucement arrondis (par défaut sur toutes les photos).
+   Formes organiques (.shape-*) : à réserver aux photos clés. */
+.media {
+  width: 100%;
+  border-radius: var(--radius-l);
+  object-fit: cover;
+  background: var(--sand);
+}
+
+.shape-egg,
+.shape-organic {
+  border-radius: 0;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.shape-egg {
+  -webkit-mask-image: var(--shape-egg);
+  mask-image: var(--shape-egg);
+}
+
+.shape-organic {
+  -webkit-mask-image: var(--shape-organic);
+  mask-image: var(--shape-organic);
+}
+
+.shape-circle {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+/* Arche : demi-ellipse en haut, coins doux en bas */
+.shape-arch {
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+}
+
+/* --- En-tête des pages intérieures -------------------------------------------------- */
+.page-head {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.page-head__inner {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.page-head__title {
+  max-width: 18ch;
+}
+
+.page-head__title {
+  font-size: var(--step-4);
+}
+
+.page-head__lead {
+  max-width: 38rem;
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+  line-height: var(--lh-snug);
+}
+
+.page-head--center .page-head__inner {
+  justify-items: center;
+  text-align: center;
+}
+
+/* --- Texte long (pages légales, soins) ------------------------------------------------ */
+.prose {
+  max-width: var(--measure);
+}
+
+.prose > * + * {
+  margin-top: var(--space-s);
+}
+
+.prose h2 {
+  margin-top: var(--space-2xl);
+  font-size: var(--step-2);
+}
+
+.prose h3 {
+  margin-top: var(--space-xl);
+  color: var(--ink);
+  font-size: var(--step-1);
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-top: var(--space-xs);
+}
+
+.prose ul {
+  display: grid;
+  gap: var(--space-2xs);
+  padding-left: 1.2em;
+}
+
+.prose li::marker {
+  color: var(--terra);
+}
+
+.prose a {
+  color: var(--teal);
+}
+
+.prose a:hover {
+  color: var(--terra);
+}
+
+.prose__lead {
+  color: var(--ink);
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+/* --- Fiche pratique (durée, lieu, tarif) ---------------------------------------------- */
+.facts {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.facts__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3xs) var(--space-m);
+  padding-block: var(--space-s);
+  border-bottom: 1px solid var(--line);
+}
+
+.facts dt {
+  color: var(--ink-soft);
+}
+
+.facts dd {
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+}
+
+/* --- Encarts ------------------------------------------------------------------------ */
+
+/* Information importante (contre-indications…) : fond sable, pas de filet coloré */
+.callout {
+  padding: var(--space-m);
+  border-radius: var(--radius-m);
+  background: var(--sand);
+  font-size: var(--step--1);
+}
+
+.callout__title {
+  margin-bottom: var(--space-2xs);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Mention santé, discrète */
+.health-note {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  font-style: italic;
+}
+
+/* Panneau clair (formulaire, options de rendez-vous) */
+.panel {
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+/* --- Icônes en ligne --------------------------------------------------------------------- */
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* --- Formulaire de contact --------------------------------------------------------- */
+.contact-form {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.contact-form__row {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 921px) {
+  .contact-form__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contact-form__field {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.contact-form__label {
+  color: var(--ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.contact-form__optional {
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.contact-form__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.7em 1em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--paper);
+  font-size: 1rem;
+  transition: border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease, background-color var(--dur-fast) ease;
+}
+
+.contact-form__input:hover {
+  border-color: var(--ink-soft);
+}
+
+.contact-form__input:focus {
+  border-color: var(--teal);
+  background: var(--white);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent);
+}
+
+/* Erreur affichée seulement après une saisie (pas dès l'arrivée sur la page) */
+.contact-form__input:user-invalid {
+  border-color: var(--terra);
+}
+
+textarea.contact-form__input {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form__note {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.contact-form__note a {
+  color: var(--teal);
+}
+
+.contact-form .btn {
+  justify-self: start;
+}
+
+/* --- Information à compléter (pages légales) -------------------------------------
+   <mark class="todo">[À COMPLÉTER : …]</mark> : bien visible tant qu'il en reste. */
+.todo {
+  padding: 0 4px;
+  border-radius: 3px;
+  background: #ffe9a8;
+  color: var(--ink);
+  font-weight: 600;
+}

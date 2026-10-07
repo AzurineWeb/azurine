@@ -1,0 +1,870 @@
+/* ==========================================================================
+   Styles propres à chaque page
+   Sommaire :
+     1. Accueil (index.html)
+     2. Qui suis-je ? (qui-suis-je.html)
+     3. Le cabinet (le-cabinet.html)
+     4. Pages de soins : soin-energetique.html, massage-sonore.html, soin-a-distance.html
+     5. Tarifs (tarifs.html)
+     6. Prise de RDV / Avis (prendre-rdv.html, avis.html)
+     7. Pages légales, merci et 404 (mentions-legales.html, confidentialite.html,
+        merci.html, 404.html)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Accueil
+   ========================================================================== */
+
+/* --- Haut de page --------------------------------------------------------------
+   Seul effet de mouvement « signature » du site : la photo se dévoile et le
+   contour du galet se dessine au chargement. */
+.hero {
+  padding-block: var(--space-xl) var(--section);
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.hero__text {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.hero__title {
+  font-size: var(--step-4);
+}
+
+.hero__title em {
+  color: var(--terra);
+}
+
+/* Retours à la ligne choisis sur desktop ; sur mobile, le texte coule librement */
+.hero__title br {
+  display: none;
+}
+
+@media (min-width: 921px) {
+  .hero__title {
+    text-wrap: wrap;
+  }
+
+  .hero__title br {
+    display: inline;
+  }
+}
+
+.hero__lead {
+  max-width: 34rem;
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.hero__text .actions {
+  margin-top: var(--space-xs);
+}
+
+.hero__media {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 460px);
+}
+
+.hero__image {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 5;
+}
+
+/* Contour du galet, décalé derrière la photo */
+.hero__outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--teal-brand);
+  overflow: visible;
+  transform: translate(18px, 16px) rotate(-4deg);
+}
+
+.hero__outline path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__text > * {
+    animation: rise 0.9s var(--ease-out) both;
+  }
+
+  .hero__text > :nth-child(2) { animation-delay: 0.08s; }
+  .hero__text > :nth-child(3) { animation-delay: 0.16s; }
+
+  .hero__image {
+    animation: unveil 1.4s var(--ease-out) 0.1s both;
+  }
+
+  .hero__outline path {
+    stroke-dasharray: 1;
+    animation: draw 2.2s var(--ease-out) 0.5s both;
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+}
+
+@keyframes unveil {
+  from { clip-path: inset(18% 0 0 0); opacity: 0.2; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+@keyframes draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (min-width: 921px) {
+  .hero {
+    padding-top: var(--space-2xl);
+  }
+
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  }
+
+  .hero__title {
+    font-size: clamp(2.75rem, 1.2rem + 3.4vw, 4.25rem);
+  }
+}
+
+/* --- Indications ------------------------------------------------------------- */
+.indications__inner {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.indications__intro {
+  display: grid;
+  gap: var(--space-m);
+  align-content: start;
+  justify-items: start;
+}
+
+.indications__title {
+  font-size: var(--step-3);
+}
+
+.indications__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  column-gap: var(--space-l);
+  padding: 0;
+  list-style: none;
+}
+
+.indications__list li {
+  padding-block: var(--space-s);
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: var(--lh-snug);
+}
+
+@media (min-width: 921px) {
+  .indications__inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-2xl);
+  }
+}
+
+/* --- Mon activité (présentation courte) ------------------------------------------ */
+.intro__inner {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.intro__media {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 420px);
+  margin-bottom: var(--space-xl);
+}
+
+.intro__portrait {
+  aspect-ratio: 4 / 5;
+}
+
+/* Petit médaillon (papillon bleu) posé sur le coin du portrait */
+.intro__badge {
+  position: absolute;
+  left: -6%;
+  bottom: -10%;
+  width: 38%;
+  border: 6px solid var(--paper);
+}
+
+.intro__text {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+  max-width: 36rem;
+}
+
+.intro__title {
+  font-size: var(--step-3);
+}
+
+.intro__text p {
+  color: var(--ink-soft);
+}
+
+@media (min-width: 921px) {
+  .intro__inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(48px, 7vw, 120px);
+  }
+
+  .intro__media {
+    margin-bottom: 0;
+  }
+}
+
+/* --- Soins proposés --------------------------------------------------------------- */
+.care-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-2xl) var(--space-l);
+  padding: 0;
+  list-style: none;
+}
+
+.care-item {
+  position: relative;
+  display: grid;
+  gap: var(--space-s);
+  align-content: start;
+  justify-items: start;
+}
+
+.care-item__media {
+  width: 100%;
+  margin-bottom: var(--space-2xs);
+  overflow: hidden;
+  border-radius: var(--radius-l);
+}
+
+.care-item__media img {
+  aspect-ratio: 5 / 4;
+  border-radius: 0;
+  transition: transform 0.9s var(--ease-out);
+}
+
+.care-item:hover .care-item__media img {
+  transform: scale(1.04);
+}
+
+.care-item__title {
+  font-size: var(--step-2);
+}
+
+.care-item__title a {
+  text-decoration: none;
+}
+
+/* Toute la carte est cliquable via le lien du titre */
+.care-item__title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.care-item__text {
+  color: var(--ink-soft);
+}
+
+.care-item__meta {
+  color: var(--ink);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+}
+
+.care-item .link-arrow {
+  margin-top: var(--space-2xs);
+}
+
+/* Desktop : titres sur deux lignes réservées, pour aligner textes et liens d'une carte à l'autre */
+@media (min-width: 921px) {
+  .care-item__title {
+    min-height: calc(2 * var(--lh-tight) * 1em);
+  }
+}
+
+.care-item:hover .link-arrow {
+  color: var(--terra);
+}
+
+.care-item:hover .link-arrow__icon {
+  transform: translateX(4px);
+}
+
+/* --- Bons cadeaux -------------------------------------------------------------- */
+.gift__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.gift__image {
+  aspect-ratio: 3 / 2;
+}
+
+.gift__text {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+  max-width: 34rem;
+}
+
+.gift__title {
+  font-size: var(--step-3);
+}
+
+.gift__highlight {
+  color: var(--teal);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: italic;
+  line-height: var(--lh-snug);
+}
+
+@media (min-width: 921px) {
+  .gift__inner {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: clamp(48px, 7vw, 120px);
+  }
+}
+
+/* --- Appel final à prendre rendez-vous ---------------------------------------------- */
+.closing {
+  border-top: 1px solid var(--line);
+}
+
+.closing__inner {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: center;
+  text-align: center;
+}
+
+.closing__title {
+  font-size: var(--step-4);
+}
+
+.closing__text {
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+}
+
+.closing__text a {
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.closing .actions {
+  justify-content: center;
+}
+
+
+/* ==========================================================================
+   2. Qui suis-je ?
+   ========================================================================== */
+.about {
+  padding-block: var(--space-xl) var(--section);
+}
+
+.about__inner {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.about__portrait {
+  justify-self: center;
+  width: min(100%, 420px);
+  aspect-ratio: 768 / 1000;
+}
+
+.about__text {
+  display: grid;
+  gap: var(--space-m);
+  max-width: var(--measure);
+}
+
+.about__title {
+  margin-bottom: var(--space-xs);
+  font-size: var(--step-4);
+}
+
+.about__text p:first-of-type {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: var(--lh-snug);
+}
+
+.about__text p {
+  color: var(--ink-soft);
+}
+
+.about__text a {
+  color: var(--teal);
+}
+
+.about__photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--space-m);
+  max-width: 760px;
+  margin-top: var(--space-2xl);
+}
+
+.about__photos img {
+  aspect-ratio: 1;
+}
+
+@media (min-width: 921px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(48px, 7vw, 120px);
+  }
+
+  .about__portrait {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-l));
+  }
+
+  .about__photos {
+    grid-column: 2;
+    margin-top: var(--space-xl);
+  }
+}
+
+/* --- Contact -------------------------------------------------------------------- */
+.contact__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.contact__intro {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.contact__title {
+  font-size: var(--step-3);
+}
+
+.contact__intro > p {
+  color: var(--ink-soft);
+}
+
+.contact__details {
+  display: grid;
+  gap: var(--space-xs);
+  padding: 0;
+  list-style: none;
+}
+
+.contact__details a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact__details a:hover {
+  color: var(--terra);
+}
+
+.contact__details .icon {
+  color: var(--teal);
+}
+
+@media (min-width: 921px) {
+  .contact__inner {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: clamp(48px, 6vw, 96px);
+  }
+
+  .contact__intro {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-l));
+  }
+}
+
+
+/* ==========================================================================
+   3. Le cabinet
+   ========================================================================== */
+.cabinet-gallery {
+  display: grid;
+  gap: var(--space-m);
+  padding-bottom: var(--section);
+}
+
+.cabinet-gallery figure {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.cabinet-gallery figcaption {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.cabinet-gallery__main img {
+  aspect-ratio: 3 / 2;
+}
+
+.cabinet-gallery__side img {
+  aspect-ratio: 3 / 2;
+}
+
+.cabinet-gallery__small img {
+  aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 921px) {
+  .cabinet-gallery {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    grid-template-rows: auto auto;
+    gap: var(--space-l);
+  }
+
+  /* La grande photo occupe toute la hauteur des deux petites */
+  .cabinet-gallery__main {
+    grid-row: 1 / 3;
+  }
+
+  .cabinet-gallery__main img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+/* --- Plan d'accès (Google Maps chargé au clic, voir main.js) ------------------------ */
+.access__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.access__text {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.access__title {
+  font-size: var(--step-3);
+}
+
+.access__address {
+  font-family: var(--font-display);
+  font-variant-numeric: lining-nums;
+  font-size: var(--step-2);
+  font-style: normal;
+  line-height: var(--lh-snug);
+}
+
+.map__frame {
+  width: 100%;
+  min-height: 340px;
+  border: 0;
+  border-radius: var(--radius-l);
+  background: var(--paper);
+}
+
+.map__consent {
+  display: grid;
+  gap: var(--space-s);
+  place-content: center;
+  justify-items: center;
+  padding: var(--space-xl) var(--space-m);
+  border: 1px dashed var(--line);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.map__consent a {
+  color: var(--teal);
+  font-size: var(--step--1);
+}
+
+.map__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--teal-brand);
+}
+
+@media (min-width: 921px) {
+  .access__inner {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: clamp(48px, 6vw, 96px);
+  }
+
+  .map__frame {
+    min-height: 420px;
+  }
+}
+
+
+/* ==========================================================================
+   4. Pages de soins
+   ========================================================================== */
+.care-page {
+  padding-bottom: var(--section);
+}
+
+.care-page__inner {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* Colonne pratique : photo, fiche, boutons (en premier sur mobile) */
+.care-page__aside {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.care-page__image {
+  aspect-ratio: 4 / 3;
+  max-height: 420px;
+}
+
+.care-page__aside .actions {
+  margin-top: var(--space-2xs);
+}
+
+.care-page__text .callout,
+.care-page__text .health-note {
+  margin-top: var(--space-l);
+}
+
+@media (min-width: 921px) {
+  .care-page__inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: clamp(48px, 7vw, 120px);
+  }
+
+  .care-page__aside {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-l));
+  }
+
+  .care-page__text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .care-page__image {
+    aspect-ratio: 1;
+  }
+}
+
+
+/* ==========================================================================
+   5. Tarifs
+   ========================================================================== */
+.pricing {
+  padding-bottom: var(--section);
+}
+
+.price-list {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.price-group {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.price-group__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-s);
+  font-size: var(--step-2);
+}
+
+.price-group__title a {
+  text-decoration: none;
+}
+
+.price-group__title a:hover {
+  color: var(--terra);
+}
+
+.price-group__duration {
+  color: var(--ink-soft);
+  font-family: var(--font-text);
+  font-size: var(--step-0);
+  letter-spacing: 0;
+}
+
+/* Ligne de tarif avec points de conduite : « Adulte ........ 60 € » */
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  padding-block: var(--space-2xs);
+}
+
+.price-row__label {
+  flex-shrink: 1;
+}
+
+.price-row::after {
+  content: '';
+  order: 1;
+  flex: 1 1 24px;
+  min-width: 24px;
+  border-bottom: 1px dotted var(--ink-soft);
+  transform: translateY(-0.3em);
+}
+
+.price-row__price {
+  order: 2;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-variant-numeric: lining-nums;
+}
+
+.gift-panel {
+  display: grid;
+  gap: var(--space-s);
+  margin-top: var(--space-2xl);
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: var(--radius-l);
+  background: var(--sand);
+}
+
+.gift-panel__title {
+  font-size: var(--step-2);
+}
+
+.pricing .actions {
+  margin-top: var(--space-2xl);
+}
+
+
+/* ==========================================================================
+   6. Prise de RDV / Avis
+   ========================================================================== */
+.booking {
+  padding-bottom: var(--section);
+}
+
+.booking__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-l);
+}
+
+.booking__option {
+  display: grid;
+  gap: var(--space-s);
+  align-content: start;
+  justify-items: start;
+}
+
+.booking__option h2 {
+  font-size: var(--step-2);
+}
+
+.booking__option p {
+  color: var(--ink-soft);
+}
+
+.booking__phone {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-variant-numeric: lining-nums;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.booking__phone:hover {
+  color: var(--terra);
+}
+
+.booking__option .btn {
+  margin-top: var(--space-2xs);
+}
+
+.booking__info {
+  margin-top: var(--space-xl);
+  color: var(--ink-soft);
+}
+
+.booking__info a {
+  color: var(--teal);
+}
+
+/* --- Avis : témoignages (liste prête dans avis.html, en commentaire) ------------ */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-l);
+  padding: 0;
+  list-style: none;
+}
+
+.testimonial__quote {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.testimonial__author {
+  margin-top: var(--space-s);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+
+/* ==========================================================================
+   7. Pages légales, merci et 404
+   ========================================================================== */
+.legal {
+  padding-bottom: var(--section);
+}
+
+.legal__updated {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.legal .prose {
+  overflow-wrap: anywhere;
+}

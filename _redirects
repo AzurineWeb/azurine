@@ -1,0 +1,10 @@
+# Redirections Netlify (lu automatiquement au déploiement).
+# Anciennes pages du site Hostinger/Zyrosite → nouvelles pages (301 = définitif).
+/magnetisme.html                      /soin-energetique.html   301
+/magnetisme                           /soin-energetique        301
+/conjurations.html                    /                        301
+/conjurations                         /                        301
+/lecture-de-memoires-akashiques.html  /                        301
+/lecture-de-memoires-akashiques       /                        301
+/qui-suis-je-                         /qui-suis-je             301
+/qui-suis-je-.html                    /qui-suis-je.html        301

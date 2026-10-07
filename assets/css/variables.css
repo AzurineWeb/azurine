@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Variables du site Azurine — direction « éditorial doux »
+   Fond papier crème, deux couleurs : bleu-vert (teal) et terracotta.
+   Tailles de texte et espacements fluides (clamp) : ils s'ajustent seuls
+   entre mobile et desktop. Point d'arrêt de mise en page unique :
+   @media (min-width: 921px) (les variables CSS ne fonctionnent pas dans
+   les media queries, d'où la valeur écrite en dur dans les autres fichiers).
+   Contrastes vérifiés (WCAG AA) : voir les commentaires des couleurs.
+   ========================================================================== */
+
+:root {
+  /* --- Couleurs -------------------------------------------------------------- */
+  --paper: #fbf7f2;          /* fond principal */
+  --sand: #f2ebe2;           /* sections alternées */
+  --white: #fff;             /* champs de formulaire, panneaux */
+  --line: #ddd3c7;           /* filets et bordures */
+
+  --ink: #22383a;            /* texte principal (11.6:1 sur papier) */
+  --ink-soft: #506466;       /* texte secondaire (5.9:1 papier, 5.3:1 sable) */
+  --teal: #3d6466;           /* titres, liens (6.1:1 papier) */
+  --teal-brand: #5c8585;     /* teinte d'origine : décor et grands titres seulement */
+  --teal-deep: #24403f;      /* pied de page (texte papier 10.5:1) */
+  --mist: #cfe0dd;           /* texte secondaire sur teal-deep (8.2:1), sélection */
+
+  --terra: #a95b33;          /* boutons et accents (texte blanc 5:1) */
+  --terra-hover: #8f4a27;
+
+  /* --- Polices ----------------------------------------------------------------- */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-text: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Échelle typographique fluide (de 320px à 1440px de large) */
+  --step--1: clamp(0.875rem, 0.84rem + 0.14vw, 0.95rem);
+  --step-0: clamp(1.0625rem, 1.02rem + 0.22vw, 1.1875rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.625rem, 1.4rem + 1.1vw, 2.25rem);
+  --step-3: clamp(2rem, 1.6rem + 2vw, 3.25rem);
+  --step-4: clamp(2.5rem, 1.85rem + 3.3vw, 4.5rem);
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-body: 1.65;
+  --measure: 66ch;           /* largeur de lecture confortable */
+
+  /* --- Espacements ---------------------------------------------------------------- */
+  --space-3xs: 4px;
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 32px;
+  --space-xl: clamp(40px, 3vw + 28px, 56px);
+  --space-2xl: clamp(56px, 5vw + 36px, 96px);
+  --section: clamp(64px, 7vw + 40px, 136px);   /* respiration entre sections */
+
+  --container: 1200px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --header-height: 72px;     /* 88px sur desktop */
+
+  /* --- Formes, ombres, mouvement ------------------------------------------------- */
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --radius-l: 28px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 18px 40px -24px rgba(34, 56, 58, 0.35);
+  --shadow-float: 0 12px 28px -12px rgba(34, 56, 58, 0.22);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);   /* sortie exponentielle */
+  --dur-fast: 0.2s;
+  --dur: 0.45s;
+
+  /* Formes organiques (masques SVG en data-URI, fonctionnent aussi en file://).
+     À réserver à quelques photos clés : accueil, portrait. */
+  --shape-egg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'%3E%3Cpath d='M121.089 0C174.339 0 200 65.9669 200 126.582C200 171.887 160.89 200 121.089 200C67.5113 200 0 187.57 0 126.582C0 53.4983 56.886 0 121.089 0Z'/%3E%3C/svg%3E");
+  --shape-organic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'%3E%3Cpath d='M168.562 42.5672C184.281 55.141 200 76.1523 200 99.8108C200 123.635 184.127 150.271 157.312 171.283C130.497 192.294 92.8952 207.68 62.9983 195.934C33.1014 184.187 11.064 145.473 3.2045 104.278C-4.655 63.2477 1.81753 19.9014 24.009 5.83869C46.2005 -8.38948 84.111 6.66591 110.772 16.2617C137.432 25.8574 152.997 29.9935 168.562 42.5672Z'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 921px) {
+  :root {
+    --header-height: 88px;
+  }
+}

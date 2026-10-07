@@ -1,0 +1,6 @@
+# Dossier local du CLI Netlify (identifiants du site, à ne pas publier)
+.netlify/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
