@@ -8,13 +8,20 @@
   <meta name="theme-color" content="#fbf7f2">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="Azurine, énergéticienne à Carquefou">
+  <meta property="og:site_name" content="Azurine">
   <meta property="og:title" content="Énergéticienne à Carquefou, près de Nantes | Azurine">
   <meta property="og:description" content="Karine, énergéticienne à Carquefou près de Nantes : soin énergétique, massage sonore aux bols tibétains, soin à distance. Rendez-vous en ligne.">
-  <meta property="og:image" content="https://azurine.fr/assets/images/accueil-papillon-lavande.jpg">
+  <meta property="og:image" content="https://azurine.fr/assets/images/partage-azurine.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Azurine, énergéticienne, et papillon posé sur une fleur de lavande">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://azurine.fr/">
   <meta property="og:url" content="https://azurine.fr/">
-  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/icons/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <link rel="preload" href="assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -24,6 +31,23 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <script src="assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://azurine.fr/#site",
+    "name": "Azurine",
+    "alternateName": [
+      "Azurine énergéticienne",
+      "azurine.fr"
+    ],
+    "url": "https://azurine.fr/",
+    "inLanguage": "fr-FR",
+    "publisher": {
+      "@id": "https://azurine.fr/#azurine"
+    }
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,8 +109,22 @@
     "sameAs": [
       "https://www.instagram.com/azurine_energeticienne"
     ],
-    "priceRange": "30 € – 60 €",
+    "priceRange": "30 € – 60 €",
     "paymentAccepted": "Espèces, chèque",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Monday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "11:00",
+        "closes": "18:00"
+      }
+    ],
     "makesOffer": [
       {
         "@type": "Offer",
@@ -134,7 +172,7 @@
         "name": "Combien dure une séance et quel est son prix ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Une séance à la salle de soin dure une heure. Soin énergétique : 60 € pour un adulte, 40 € pour un enfant de moins de 16 ans. Massage sonore aux bols tibétains : 50 € pour un adulte, 30 € pour un enfant de moins de 16 ans. Pour le soin à distance, le tarif et la durée vous sont communiqués par téléphone, au 06 62 41 94 03."
+          "text": "Une séance à la salle de soin dure une heure. Soin énergétique : 60 € pour un adulte, 40 € pour un enfant de moins de 16 ans. Massage sonore aux bols tibétains : 50 € pour un adulte, 30 € pour un enfant de moins de 16 ans. Pour le soin à distance, le tarif et la durée vous sont communiqués par téléphone, au 06 62 41 94 03."
         }
       },
       {
@@ -158,7 +196,7 @@
         "name": "Quels sont les horaires ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Je vous reçois uniquement sur rendez-vous, habituellement le lundi de 11 h à 17 h et le vendredi de 11 h à 18 h. Ces horaires sont indicatifs : les créneaux disponibles sont affichés sur l'agenda en ligne."
+          "text": "Je vous reçois uniquement sur rendez-vous, habituellement le lundi de 11 h à 17 h et le vendredi de 11 h à 18 h. Les créneaux disponibles sont affichés sur l'agenda en ligne."
         }
       },
       {
@@ -166,7 +204,7 @@
         "name": "Comment régler une séance ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Le règlement se fait en espèces ou par chèque."
+          "text": "En espèces ou par chèque."
         }
       },
       {
@@ -245,7 +283,7 @@
           <h1 class="hero__title">Soins énergétiques<br> <em>&amp;</em> massages sonores<br> à Carquefou</h1>
           <p class="hero__lead">Je suis Karine, énergéticienne à Carquefou, aux portes de Nantes. Je vous accueille avec douceur et écoute pour relâcher les tensions et retrouver de l'apaisement.</p>
           <div class="actions">
-            <a class="btn btn--primary" href="https://calendly.com/azurine" target="_blank" rel="noopener">Prendre rendez-vous</a>
+            <a class="btn btn--primary" href="https://cal.com/azurine" target="_blank" rel="noopener">Prendre rendez-vous</a>
             <a class="link-arrow" href="#soins">Découvrir les soins <svg class="link-arrow__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
@@ -305,14 +343,14 @@
             <div class="care-item__media"><img class="media" src="assets/images/karine-soin-energetique.jpg" alt="Karine pratiquant un soin énergétique sur une personne allongée" width="375" height="366" loading="lazy"></div>
             <h3 class="care-item__title"><a href="soin-energetique.html">Soin énergétique</a></h3>
             <p class="care-item__text">Une heure à la salle de soin, pour un moment de détente et d'apaisement.</p>
-            <p class="care-item__meta">1 heure · dès 40 €</p>
+            <p class="care-item__meta">1 heure · dès 40 €</p>
             <span class="link-arrow" aria-hidden="true">Découvrir <svg class="link-arrow__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </li>
           <li class="care-item">
-            <div class="care-item__media"><img class="media" src="assets/images/cabinet-table-de-soin.jpg" alt="Table de soin recouverte d'un plaid bleu" width="375" height="366" loading="lazy"></div>
+            <div class="care-item__media"><img class="media" src="assets/images/salle-table-de-soin.jpg" alt="Table de soin recouverte d'un plaid bleu" width="375" height="366" loading="lazy"></div>
             <h3 class="care-item__title"><a href="massage-sonore.html">Massage sonore aux bols tibétains</a></h3>
             <p class="care-item__text">Les sons et les vibrations des bols tibétains, pour un moment de détente.</p>
-            <p class="care-item__meta">1 heure · dès 30 €</p>
+            <p class="care-item__meta">1 heure · dès 30 €</p>
             <span class="link-arrow" aria-hidden="true">Découvrir <svg class="link-arrow__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </li>
           <li class="care-item">
@@ -329,7 +367,7 @@
     <!-- Bons cadeaux -->
     <section class="section gift" id="bons-cadeaux" aria-labelledby="gift-title">
       <div class="container gift__inner">
-        <img class="gift__image media" src="assets/images/cabinet-table-fenetre.jpg" alt="Table de soin installée près de la fenêtre" width="768" height="513" loading="lazy">
+        <img class="gift__image media" src="assets/images/salle-table-fenetre.jpg" alt="Table de soin installée près de la fenêtre" width="768" height="513" loading="lazy">
         <div class="gift__text">
           <h2 class="gift__title" id="gift-title">Offrir un bon cadeau</h2>
           <p>Faites plaisir à un proche en lui offrant un moment de détente, pour l'une des prestations proposées.</p>
@@ -346,7 +384,7 @@
         <div class="faq__list">
           <details class="faq__item">
             <summary class="faq__question">Combien dure une séance et quel est son prix ?</summary>
-            <p class="faq__answer">Une séance à la salle de soin dure une heure. Soin énergétique : 60 € pour un adulte, 40 € pour un enfant de moins de 16 ans. Massage sonore aux bols tibétains : 50 € pour un adulte, 30 € pour un enfant de moins de 16 ans. Pour le soin à distance, le tarif et la durée vous sont communiqués par téléphone, au <a href="tel:+33662419403">06&nbsp;62&nbsp;41&nbsp;94&nbsp;03</a>.</p>
+            <p class="faq__answer">Une séance à la salle de soin dure une heure. Soin énergétique : 60 € pour un adulte, 40 € pour un enfant de moins de 16 ans. Massage sonore aux bols tibétains : 50 € pour un adulte, 30 € pour un enfant de moins de 16 ans. Pour le soin à distance, le tarif et la durée vous sont communiqués par téléphone, au <a href="tel:+33662419403">06&nbsp;62&nbsp;41&nbsp;94&nbsp;03</a>.</p>
           </details>
           <details class="faq__item">
             <summary class="faq__question">Les soins conviennent-ils aux enfants ?</summary>
@@ -358,11 +396,11 @@
           </details>
           <details class="faq__item">
             <summary class="faq__question">Quels sont les horaires ?</summary>
-            <p class="faq__answer">Je vous reçois uniquement sur rendez-vous, habituellement le lundi de 11 h à 17 h et le vendredi de 11 h à 18 h. Ces horaires sont indicatifs : les créneaux disponibles sont affichés sur l'agenda en ligne.</p>
+            <p class="faq__answer">Je vous reçois uniquement sur rendez-vous, habituellement le lundi de 11 h à 17 h et le vendredi de 11 h à 18 h. Les créneaux disponibles sont affichés sur l'agenda en ligne.</p>
           </details>
           <details class="faq__item">
             <summary class="faq__question">Comment régler une séance ?</summary>
-            <p class="faq__answer">Le règlement se fait en espèces ou par chèque.</p>
+            <p class="faq__answer">En espèces ou par chèque.</p>
           </details>
           <details class="faq__item">
             <summary class="faq__question">Peut-on annuler ou reporter un rendez-vous ?</summary>
@@ -384,9 +422,9 @@
     <section class="section closing" aria-labelledby="closing-title">
       <div class="container closing__inner">
         <h2 class="closing__title" id="closing-title">Prendre rendez-vous</h2>
-        <p class="closing__text">En ligne à tout moment, ou par téléphone au <a href="tel:+33662419403">06&nbsp;62&nbsp;41&nbsp;94&nbsp;03</a>.<br>Accueil uniquement sur rendez-vous, habituellement le lundi de 11 h à 17 h et le vendredi de 11 h à 18 h (horaires indicatifs).</p>
+        <p class="closing__text">En ligne à tout moment, ou par téléphone au <a href="tel:+33662419403">06&nbsp;62&nbsp;41&nbsp;94&nbsp;03</a>.<br>Accueil uniquement sur rendez-vous, habituellement le lundi de 11 h à 17 h et le vendredi de 11 h à 18 h.</p>
         <div class="actions">
-          <a class="btn btn--primary" href="https://calendly.com/azurine" target="_blank" rel="noopener">Réserver en ligne</a>
+          <a class="btn btn--primary" href="https://cal.com/azurine" target="_blank" rel="noopener">Réserver en ligne</a>
           <a class="btn btn--outline" href="tel:+33662419403">Appeler</a>
         </div>
       </div>
