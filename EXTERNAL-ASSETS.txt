@@ -2,14 +2,14 @@ RESSOURCES EXTERNES — état au 8 octobre 2026
 =============================================
 
 Toutes les images, polices, feuilles de style et scripts sont désormais locaux
-(dossier assets/). Aucun fichier n'est plus chargé depuis assets.zyrosite.com
+(dossier static/assets/). Aucun fichier n'est plus chargé depuis assets.zyrosite.com
 ni depuis Hostinger.
 
 Services externes conservés volontairement (liens ou intégrations) :
   - Google Maps (iframe)        salle-de-soin.html — chargée seulement après un clic sur
                                 « Afficher la carte » (cookies Google, voir confidentialite.html)
   - Cal.com (prise de RDV)      index.html, prendre-rdv.html, pages de soins   https://cal.com/azurine
-                                (simple lien, rien n'est chargé depuis Cal.com ; BOOKING dans build.py)
+                                (simple lien, rien n'est chargé depuis Cal.com ; adresse dans infos.toml)
   - Instagram d'Azurine         pied de page de toutes les pages, qui-suis-je.html
   - Netlify Forms               formulaire de qui-suis-je.html (hébergement Netlify)
 

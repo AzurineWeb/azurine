@@ -1,39 +1,49 @@
 # Azurine — site statique
 
 Site vitrine d'Azurine, énergéticienne à Carquefou.
-HTML, CSS et JavaScript « vanilla » : aucun framework, aucune dépendance, aucune étape de build côté hébergeur.
+HTML, CSS et JavaScript « vanilla », générés par un script Python sans dépendance.
 
-## Lancer le site
+## Fonctionnement
 
-```bash
-python -m http.server 8080
+Le site est **généré** : on ne modifie jamais les pages HTML à la main.
+
+```
+infos.toml    informations modifiables par la cliente : tarifs, horaires, coordonnées,
+              lien de réservation, questions fréquentes, avis
+build.py      générateur : structure et textes des pages ; vérifie infos.toml
+static/       fichiers copiés tels quels (assets/, favicon.ico, site.webmanifest,
+              _redirects, _headers)
+public/       site généré (non versionné) : c'est ce dossier que Netlify publie
+netlify.toml  commande de génération et dossier publié, version de Python
+sources/      fichiers sources non publiés (icône du site en 512 px)
 ```
 
-Puis ouvrir <http://localhost:8080/>. L'extension VS Code **Live Server** fonctionne aussi.
-Le formulaire de contact (Netlify Forms) ne fonctionne qu'une fois en ligne.
+À chaque push sur `main`, Netlify lance `python3 -I build.py` puis publie `public/`.
+Si `infos.toml` contient une erreur, la génération s'arrête avec un message en français
+(visible dans *Deploys* sur Netlify et dans l'e-mail d'échec) et **la version précédente
+reste en ligne**.
 
 ## Modifier le site
 
-Les pages HTML sont **générées** par `build.py`, conservé hors du dépôt (dossier voisin `../outils/`,
-pour qu'il ne soit pas publié). Une modification faite directement dans un `.html` serait écrasée
-à la prochaine génération.
+- **Tarif, horaire, coordonnées, question fréquente, avis** : modifier `infos.toml`
+  (sur GitHub : ouvrir le fichier, crayon « Edit this file », « Commit changes »).
+  Le mode d'emploi est en tête du fichier.
+- **Texte d'une page, menu, pied de page** : `build.py` (une section par page ;
+  menu dans `NAV` / `SOINS`, pied de page dans `footer()`).
+- **Styles, scripts, images** : `static/assets/`.
 
-1. Ouvrir `../outils/build.py`.
-2. Pour une information courante (tarif, horaire, téléphone, adresse, lien de réservation,
-   question fréquente, avis), modifier le bloc **« INFORMATIONS À METTRE À JOUR »** en tête du
-   fichier : chaque information y est écrite une seule fois et reprise partout (pages, FAQ,
-   données lues par Google).
-3. Pour un texte de page, chercher la page dans le reste du fichier (une section par page).
-4. Régénérer, vérifier, publier :
+## Prévisualiser en local
+
+Python 3.11 ou plus récent, aucune dépendance :
 
 ```bash
-cd ../outils && python3 -I build.py ../azurine-clean
-cd ../azurine-clean && git status   # ne doit montrer que les changements voulus
+python3 -I build.py                       # génère public/
+python3 -m http.server 8080 -d public     # puis http://localhost:8080/
 ```
 
-Penser à mettre à jour `LASTMOD` (date déclarée à Google) à chaque mise en ligne de contenu.
+Le formulaire de contact (Netlify Forms) ne fonctionne qu'une fois en ligne.
 
-## Organisation
+## Organisation de `public/` (généré)
 
 ```
 index.html                 Accueil (activité, soins, bons cadeaux, FAQ, prise de RDV)
@@ -44,26 +54,28 @@ massage-sonore.html        ├ menu « Soins proposés »
 soin-a-distance.html       ┘
 tarifs.html                Tarifs, règlement, annulation, bons cadeaux (#bons-cadeaux)
 prendre-rdv.html           Réservation en ligne (Cal.com) ou par téléphone
-avis.html                  Lien vers les avis Google ; témoignages (liste TESTIMONIALS de build.py)
+avis.html                  Lien vers les avis Google ; témoignages ([[avis]] de infos.toml)
 mentions-legales.html      ┐ pages légales
 confidentialite.html       ┘
 merci.html                 Page affichée après l'envoi du formulaire
 404.html                   Page d'erreur Netlify (chemins absolus /assets/…)
-favicon.ico, site.webmanifest   Icône du site (onglet, résultats Google, écran d'accueil)
-sitemap.xml, robots.txt    Générés par build.py
-_redirects, _headers       Configuration Netlify (anciennes adresses → nouvelles pages, sécurité)
-assets/
-  css/
-    variables.css    couleurs, échelle typographique fluide, espacements, formes
-    base.css         polices locales, remise à zéro, utilitaires
-    layout.css       conteneur, grille 12 colonnes, en-tête, menu, pied de page
-    components.css   boutons, photos et formes, titres, fiche pratique, encarts, formulaire
-    pages.css        styles propres à chaque page (sommaire en tête de fichier)
-  js/main.js         menu mobile, sous-menu, carte Google Maps chargée au clic
-  icons/             icônes du site (papillon du logo) : 192, 512 px et apple-touch-icon
-  images/            photos nommées par page (accueil-, karine-, salle-) ; partage-azurine.jpg
-                     = image d'aperçu 1200 × 630 pour les réseaux sociaux
-  fonts/             Playfair Display et Source Sans 3 (woff2 variables, normal + italique)
+sitemap.xml, robots.txt    lastmod = date du dernier commit
+```
+
+`static/assets/` :
+
+```
+css/
+  variables.css    couleurs, échelle typographique fluide, espacements, formes
+  base.css         polices locales, remise à zéro, utilitaires
+  layout.css       conteneur, grille 12 colonnes, en-tête, menu, pied de page
+  components.css   boutons, photos et formes, titres, fiche pratique, encarts, formulaire
+  pages.css        styles propres à chaque page (sommaire en tête de fichier)
+js/main.js         menu mobile, sous-menu, carte Google Maps chargée au clic
+icons/             icônes du site (papillon du logo) : 192, 512 px et apple-touch-icon
+images/            photos nommées par page (accueil-, karine-, salle-) ; partage-azurine.jpg
+                   = image d'aperçu 1200 × 630 pour les réseaux sociaux
+fonts/             Playfair Display et Source Sans 3 (woff2 variables, normal + italique)
 ```
 
 ## Conventions
@@ -87,7 +99,7 @@ assets/
 | Domaine `azurine.fr` + boîte `contact@azurine.fr` | OVH (zone DNS gérée chez OVH) | compte OVH de la cliente |
 | Réservation en ligne | Cal.com (`cal.com/azurine`) | compte de la cliente |
 
-**Netlify** : pas de commande de build, dossier de publication = racine du dépôt.
+**Netlify** : commande `python3 -I build.py`, dossier publié `public/`, Python 3.12 (tout est dans `netlify.toml`, prioritaire sur l'interface).
 L'application GitHub de Netlify n'a accès qu'au dépôt `azurine` (« Only select repositories »).
 
 - **Formulaire de contact** : détecté automatiquement (`data-netlify="true"` dans
