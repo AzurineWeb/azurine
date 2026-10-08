@@ -20,9 +20,9 @@
 #    - Les heures s'écrivent "11:00", "17:30".
 #
 #  En cas d'erreur, le site n'est pas cassé : la mise à jour est simplement refusée et
-#  la version précédente reste en ligne. Netlify prévient par e-mail ; le message qui
-#  indique la ligne à corriger se lit dans Netlify, rubrique « Deploys », en cliquant
-#  sur la mise en ligne marquée « Failed ».
+#  la version précédente reste en ligne. GitHub affiche alors une croix rouge à côté de
+#  la modification et envoie un e-mail. Cliquer sur la croix rouge, puis sur « Details » :
+#  le message, en français, indique la ligne à corriger.
 # =============================================================================
 
 
