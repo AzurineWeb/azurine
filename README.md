@@ -59,7 +59,7 @@ en compte 300 par mois, soit une vingtaine de publications. Faire toutes ses mod
 les vérifier avec Live Server, puis publier une seule fois. On peut faire plusieurs *Valider*
 (commits) et un seul *Synchroniser* à la fin : c'est le *Synchroniser* qui publie. Une
 modification qui ne touche pas le dossier `site/` (ce README par exemple) n'est pas publiée
-et ne coûte rien. Revenir à une version précédente dans Netlify ne coûte rien non plus.
+et ne coûte rien.
 Netlify envoie un e-mail à 50 % puis à 100 % des crédits du mois.
 
 ## Où modifier quoi
@@ -92,11 +92,7 @@ Rien n'est perdu : GitHub garde toutes les versions de chaque fichier.
 - **Avant de publier** (modification pas encore validée) : dans *Contrôle de code source*,
   survoler le fichier puis cliquer sur la flèche **Ignorer les modifications** (*Discard Changes*) :
   le fichier revient à sa dernière version publiée.
-- **Le site en ligne a un problème, urgence** : sur [app.netlify.com](https://app.netlify.com),
-  ouvrir le site, onglet **Deploys**, cliquer sur une mise en ligne précédente qui fonctionnait,
-  puis sur **Publish deploy**. Le site revient immédiatement à cette version. Corriger ensuite
-  le fichier : la prochaine publication remplacera cette version de secours.
-- **Retrouver l'ancien contenu d'une page** : sur GitHub, ouvrir le fichier et cliquer sur
+- **Après publication** : sur GitHub, ouvrir le fichier et cliquer sur
   **History** (historique). Chaque ligne est une version, avec sa date et son message.
   Sur la version voulue, cliquer sur l'icône **`<>`** (*Browse repository at this point*),
   rouvrir le fichier, puis copier son contenu (bouton **Copy raw file**). Le recoller dans
