@@ -16,13 +16,13 @@ Puis ouvrir <http://localhost:8080/>. L'extension VS Code **Live Server** foncti
 ```
 index.html                 Accueil (activité, soins, bons cadeaux, prise de RDV)
 qui-suis-je.html           Présentation + formulaire de contact (Netlify Forms)
-le-cabinet.html            Photos du cabinet + plan Google Maps chargé au clic
+salle-de-soin.html         Photos de la salle de soin, horaires + plan Google Maps chargé au clic
 soin-energetique.html      ┐
 massage-sonore.html        ├ menu « Soins proposés »
 soin-a-distance.html       ┘
 tarifs.html                Tarifs + bons cadeaux (#bons-cadeaux)
 prendre-rdv.html
-avis.html                  Invitation à laisser un avis (modèle de témoignages en commentaire)
+avis.html                  Invitation à laisser un avis (témoignages : liste TESTIMONIALS de build.py)
 mentions-legales.html      ┐ pages légales (champs [À COMPLÉTER] surlignés en jaune)
 confidentialite.html       ┘
 merci.html                 Page affichée après l'envoi du formulaire

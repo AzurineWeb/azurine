@@ -6,9 +6,10 @@ Toutes les images, polices, feuilles de style et scripts sont désormais locaux
 ni depuis Hostinger.
 
 Services externes conservés volontairement (liens ou intégrations) :
-  - Google Maps (iframe)        le-cabinet.html — chargée seulement après un clic sur
+  - Google Maps (iframe)        salle-de-soin.html — chargée seulement après un clic sur
                                 « Afficher la carte » (cookies Google, voir confidentialite.html)
   - Calendly (prise de RDV)     index.html, prendre-rdv.html, pages de soins   https://calendly.com/azurine
+                                (remplacé par Cal.com dès que le compte de la cliente est prêt : BOOKING dans build.py)
   - Instagram d'Azurine         pied de page de toutes les pages, qui-suis-je.html
   - Netlify Forms               formulaire de qui-suis-je.html (hébergement Netlify)
 
