@@ -847,6 +847,17 @@
   font-size: var(--step-2);
 }
 
+.pricing__note {
+  margin-top: var(--space-m);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+/* Règlement et annulation : fiche pratique (.facts) sous la liste des tarifs */
+.pricing__facts {
+  margin-top: var(--space-xl);
+}
+
 .pricing .actions {
   margin-top: var(--space-2xl);
 }
@@ -903,6 +914,15 @@
 }
 
 .booking__info a {
+  color: var(--teal);
+}
+
+.booking__facts {
+  max-width: 44rem;
+  margin-top: var(--space-l);
+}
+
+.booking__facts a {
   color: var(--teal);
 }
 

@@ -272,6 +272,10 @@
   letter-spacing: 0;
 }
 
+.callout p + p {
+  margin-top: var(--space-2xs);
+}
+
 /* Mention santé, discrète */
 .health-note {
   color: var(--ink-soft);
