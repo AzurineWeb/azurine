@@ -597,7 +597,7 @@
 .salle-gallery {
   display: grid;
   gap: var(--space-m);
-  padding-bottom: var(--section);
+  padding-bottom: var(--space-2xl);
 }
 
 .salle-gallery figure {
@@ -654,7 +654,7 @@
 }
 
 .access__title {
-  font-size: var(--step-3);
+  font-size: var(--step-2);
 }
 
 .access__address {
@@ -893,6 +893,33 @@
   padding-bottom: var(--section);
 }
 
+/* En-tête : titre à gauche, horaires à droite sur ordinateur */
+.booking-head__inner {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.booking-hours {
+  display: grid;
+  gap: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--line);
+}
+
+.booking-hours dt {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.booking-hours dd {
+  margin-top: var(--space-3xs);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-variant-numeric: lining-nums;
+  line-height: var(--lh-snug);
+}
+
+/* Deux façons de réserver : même structure, l'action alignée en bas */
 .booking__options {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -901,8 +928,8 @@
 
 .booking__option {
   display: grid;
+  grid-template-rows: auto 1fr auto;
   gap: var(--space-s);
-  align-content: start;
   justify-items: start;
 }
 
@@ -911,7 +938,12 @@
 }
 
 .booking__option p {
+  max-width: 38ch;
   color: var(--ink-soft);
+}
+
+.booking__option .btn {
+  margin-top: var(--space-2xs);
 }
 
 .booking__phone {
@@ -919,6 +951,7 @@
   font-family: var(--font-display);
   font-size: var(--step-3);
   font-variant-numeric: lining-nums;
+  line-height: var(--lh-tight);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -927,26 +960,57 @@
   color: var(--mauve);
 }
 
-.booking__option .btn {
-  margin-top: var(--space-2xs);
+.booking__call {
+  display: grid;
+  gap: var(--space-s);
+  justify-items: start;
 }
 
-.booking__info {
+/* Bon à savoir : libellé au-dessus de la valeur, trois colonnes sur ordinateur */
+.booking-notes {
+  display: grid;
   margin-top: var(--space-xl);
+  border-top: 1px solid var(--line);
+}
+
+.booking-notes__item {
+  padding-block: var(--space-s);
+  border-bottom: 1px solid var(--line);
+}
+
+.booking-notes dt {
   color: var(--ink-soft);
+  font-size: var(--step--1);
 }
 
-.booking__info a {
-  color: var(--teal);
+.booking-notes dd {
+  margin-top: var(--space-3xs);
+  font-weight: 600;
+  text-wrap: pretty;
 }
 
-.booking__facts {
-  max-width: 44rem;
-  margin-top: var(--space-l);
-}
+@media (min-width: 921px) {
+  .booking__call-btn {
+    display: none;
+  }
 
-.booking__facts a {
-  color: var(--teal);
+  .booking-head__inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    align-items: end;
+    gap: clamp(48px, 6vw, 96px);
+  }
+
+  .booking-notes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-l);
+    border-top: 0;
+  }
+
+  .booking-notes__item {
+    padding-block: var(--space-s) 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 0;
+  }
 }
 
 /* --- Avis : témoignages (avis.html, et avis Google de avis-google.js) ----------- */
