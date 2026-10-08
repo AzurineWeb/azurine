@@ -20,8 +20,12 @@ sources/      fichiers sources non publiés (icône du site en 512 px)
 
 À chaque push sur `main`, Netlify lance `python3 -I build.py` puis publie `public/`.
 Si `infos.toml` contient une erreur, la génération s'arrête avec un message en français
-(visible dans *Deploys* sur Netlify et dans l'e-mail d'échec) et **la version précédente
-reste en ligne**.
+et **la version précédente reste en ligne**.
+
+La même génération tourne dans GitHub Actions (`.github/workflows/verification.yml`,
+gratuit) : en cas d'erreur, croix rouge à côté du commit et e-mail de GitHub à son auteur,
+avec le message dans le détail de la vérification. (Les e-mails d'échec de Netlify sont
+payants.)
 
 ## Modifier le site
 

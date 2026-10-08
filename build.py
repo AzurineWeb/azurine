@@ -28,7 +28,8 @@ INFOS_FILE = ROOT / 'infos.toml'
 # LECTURE ET VÉRIFICATION DE infos.toml
 # =============================================================================================
 def stop(message):
-    """Arrête la génération : le message apparaît dans le journal de Netlify (et l'e-mail d'échec)."""
+    """Arrête la génération : le message apparaît dans le journal de Netlify et dans celui de la
+    vérification GitHub Actions (croix rouge sur le commit, e-mail de GitHub à son auteur)."""
     sys.exit(f'\nERREUR dans infos.toml : {message}\nLe site n\'a pas été mis à jour ; '
              'la version précédente reste en ligne.\n')
 
