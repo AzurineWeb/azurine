@@ -6,6 +6,7 @@
  *  3. Carte Google Maps (salle-de-soin.html) : chargée seulement après un clic,
  *     car Google dépose des cookies (voir confidentialite.html).
  *  4. En-tête : filet et ombre dès que la page défile.
+ *  5. Formulaire de contact : bouton « Envoi en cours… » pour éviter un double envoi.
  */
 
 // 1. Menu mobile --------------------------------------------------------------
@@ -107,7 +108,29 @@ function initHeaderShadow() {
   window.addEventListener('scroll', update, { passive: true });
 }
 
+// 5. Formulaire de contact -------------------------------------------------------------
+// Le bouton n'est bloqué qu'une fois le formulaire valide (l'événement submit n'a pas lieu
+// sinon). Retour arrière depuis merci.html : la page revient du cache, on réactive le bouton.
+function initContactForm() {
+  const form = document.querySelector('.contact-form');
+  const button = form?.querySelector('[type="submit"]');
+  if (!button) return;
+
+  const label = button.textContent;
+
+  form.addEventListener('submit', () => {
+    button.disabled = true;
+    button.textContent = 'Envoi en cours…';
+  });
+
+  window.addEventListener('pageshow', () => {
+    button.disabled = false;
+    button.textContent = label;
+  });
+}
+
 initMobileMenu();
 initSubmenus();
 initMaps();
 initHeaderShadow();
+initContactForm();

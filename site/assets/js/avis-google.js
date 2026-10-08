@@ -34,13 +34,29 @@ function chargerGoogle() {
   });
 }
 
-// Étoiles : visibles à l'écran, lues « Note : 5 sur 5 » par les lecteurs d'écran
+// Étoiles dessinées en SVG (trait de 1,5 px comme les autres icônes du site),
+// lues « Note : 5 sur 5 » par les lecteurs d'écran
+const ETOILE = 'M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z';
+
 function creerEtoiles(note) {
   const etoiles = document.createElement('p');
   etoiles.className = 'google-reviews__stars';
   etoiles.setAttribute('role', 'img');
   etoiles.setAttribute('aria-label', `Note : ${note} sur 5`);
-  etoiles.textContent = '★'.repeat(Math.round(note)) + '☆'.repeat(5 - Math.round(note));
+  for (let i = 1; i <= 5; i += 1) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    const forme = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    forme.setAttribute('d', ETOILE);
+    forme.setAttribute('fill', i <= Math.round(note) ? 'currentColor' : 'none');
+    forme.setAttribute('stroke', 'currentColor');
+    forme.setAttribute('stroke-width', '1.5');
+    forme.setAttribute('stroke-linejoin', 'round');
+    svg.append(forme);
+    etoiles.append(svg);
+  }
   return etoiles;
 }
 

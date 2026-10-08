@@ -73,7 +73,8 @@
 .hero__media {
   position: relative;
   justify-self: center;
-  width: min(100%, 460px);
+  /* - 24px : place pour le contour, décalé de 18px vers la droite */
+  width: min(100% - 24px, 460px);
 }
 
 .hero__image {
@@ -179,6 +180,11 @@
   line-height: var(--lh-snug);
 }
 
+/* Avertissement santé, sous la liste */
+.indications__note {
+  margin-top: var(--space-m);
+}
+
 @media (min-width: 921px) {
   .indications__inner {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -264,7 +270,7 @@
 }
 
 .care-item__media img {
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 16 / 10;   /* 5 / 4 sur desktop */
   border-radius: 0;
   transition: transform 0.9s var(--ease-out);
 }
@@ -304,6 +310,10 @@
 
 /* Desktop : titres sur deux lignes réservées, pour aligner textes et liens d'une carte à l'autre */
 @media (min-width: 921px) {
+  .care-item__media img {
+    aspect-ratio: 5 / 4;
+  }
+
   .care-item__title {
     min-height: calc(2 * var(--lh-tight) * 1em);
   }
@@ -964,9 +974,15 @@
 }
 
 .google-reviews__stars {
+  display: flex;
+  gap: 2px;
   margin-bottom: var(--space-xs);
   color: var(--terra);
-  letter-spacing: 0.1em;
+}
+
+.google-reviews__stars svg {
+  width: 18px;
+  height: 18px;
 }
 
 .google-reviews__source {

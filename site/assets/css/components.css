@@ -45,6 +45,14 @@
   box-shadow: none;
 }
 
+/* Pendant l'envoi du formulaire (« Envoi en cours… ») */
+.btn:disabled {
+  background: var(--btn-bg);
+  transform: none;
+  box-shadow: none;
+  cursor: progress;
+}
+
 .btn--primary {
   --btn-bg: var(--terra);
   --btn-bg-hover: var(--terra-hover);
