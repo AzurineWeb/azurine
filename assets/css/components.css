@@ -375,13 +375,3 @@ textarea.contact-form__input {
 .contact-form .btn {
   justify-self: start;
 }
-
-/* --- Information à compléter (pages légales) -------------------------------------
-   <mark class="todo">[À COMPLÉTER : …]</mark> : bien visible tant qu'il en reste. */
-.todo {
-  padding: 0 4px;
-  border-radius: 3px;
-  background: #ffe9a8;
-  color: var(--ink);
-  font-weight: 600;
-}

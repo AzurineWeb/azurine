@@ -3,7 +3,7 @@
    Sommaire :
      1. Accueil (index.html)
      2. Qui suis-je ? (qui-suis-je.html)
-     3. Le cabinet (le-cabinet.html)
+     3. La salle de soin (salle-de-soin.html)
      4. Pages de soins : soin-energetique.html, massage-sonore.html, soin-a-distance.html
      5. Tarifs (tarifs.html)
      6. Prise de RDV / Avis (prendre-rdv.html, avis.html)
@@ -582,49 +582,49 @@
 
 
 /* ==========================================================================
-   3. Le cabinet
+   3. La salle de soin
    ========================================================================== */
-.cabinet-gallery {
+.salle-gallery {
   display: grid;
   gap: var(--space-m);
   padding-bottom: var(--section);
 }
 
-.cabinet-gallery figure {
+.salle-gallery figure {
   display: grid;
   gap: var(--space-xs);
 }
 
-.cabinet-gallery figcaption {
+.salle-gallery figcaption {
   color: var(--ink-soft);
   font-size: var(--step--1);
 }
 
-.cabinet-gallery__main img {
+.salle-gallery__main img {
   aspect-ratio: 3 / 2;
 }
 
-.cabinet-gallery__side img {
+.salle-gallery__side img {
   aspect-ratio: 3 / 2;
 }
 
-.cabinet-gallery__small img {
+.salle-gallery__small img {
   aspect-ratio: 3 / 2;
 }
 
 @media (min-width: 921px) {
-  .cabinet-gallery {
+  .salle-gallery {
     grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
     grid-template-rows: auto auto;
     gap: var(--space-l);
   }
 
   /* La grande photo occupe toute la hauteur des deux petites */
-  .cabinet-gallery__main {
+  .salle-gallery__main {
     grid-row: 1 / 3;
   }
 
-  .cabinet-gallery__main img {
+  .salle-gallery__main img {
     height: 100%;
     aspect-ratio: auto;
   }
