@@ -11,12 +11,11 @@ ce qui est dans le dossier `site/` est exactement ce qui est mis en ligne.
 site/                      LE SITE (seul dossier mis en ligne)
   index.html               Accueil : présentation, soins, bons cadeaux, questions fréquentes
   qui-suis-je.html         Présentation de Karine + formulaire de contact
-  salle-de-soin.html       Photos de la salle de soin + plan d'accès
   soin-energetique.html    ┐
   massage-sonore.html      ├ pages des soins
   soin-a-distance.html     ┘
   tarifs.html              Tarifs, règlement, bons cadeaux
-  prendre-rdv.html         Réservation en ligne, téléphone, horaires, annulation
+  prendre-rdv.html         Réservation, horaires, annulation, photos du cabinet + plan d'accès
   avis.html                Lien vers les avis Google (+ modèle de témoignages)
   mentions-legales.html    ┐ pages légales
   confidentialite.html     ┘
@@ -108,11 +107,11 @@ Pour un développeur : `git revert <commit>` annule proprement une publication.
   photos, fiches, encarts, formulaire), `pages.css` (styles propres à chaque page, sommaire en
   tête). Écrit « mobile d'abord », un seul point de rupture à 921 px, tailles fluides (`clamp`).
 - **Nommage BEM** : `.bloc__element--variante`.
-- **En-tête et pied de page** identiques sur les 13 pages, entre des commentaires bien visibles.
+- **En-tête et pied de page** identiques sur les 12 pages, entre des commentaires bien visibles.
   Seule différence : `aria-current="page"` sur le lien de la page affichée.
 - `404.html` utilise des chemins absolus (`/assets/…`) car Netlify l'affiche à n'importe
   quelle adresse.
-- **Vocabulaire du bien-être** : « salle de soin », « séance », « accompagner » ; aucune maladie
+- **Vocabulaire du bien-être** : « cabinet », « séance », « accompagner » ; aucune maladie
   ni promesse de résultat. Avertissement santé sur l'accueil et les 3 pages de soins.
 - **Services externes** : Cal.com (simple lien), Google Maps (chargé au clic), Instagram,
   Netlify Forms. Tout nouveau service doit être ajouté à `EXTERNAL-ASSETS.txt` et à la politique
@@ -131,4 +130,4 @@ Pour un développeur : `git revert <commit>` annule proprement une publication.
   notification vers `contact@azurine.fr`.
 - **Domaine** : `azurine.fr` pointe vers Netlify (enregistrement A), `www.azurine.fr` par un
   CNAME. Ne pas modifier les enregistrements MX / SPF d'OVH (messagerie).
-- **Anciennes adresses** (ancien site Hostinger, `le-cabinet.html`) : redirigées par `site/_redirects`.
+- **Anciennes adresses** (ancien site Hostinger, `le-cabinet.html`, `salle-de-soin.html`) : redirigées par `site/_redirects`.

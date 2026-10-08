@@ -62,7 +62,7 @@ body {
   font-family: var(--font-text);
   font-size: var(--step-0);
   line-height: var(--lh-body);
-  caret-color: var(--terra);
+  caret-color: var(--mauve);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -136,7 +136,7 @@ textarea {
 }
 
 :focus-visible {
-  outline: 2px solid var(--terra);
+  outline: 2px solid var(--mauve);
   outline-offset: 3px;
   border-radius: 2px;
 }

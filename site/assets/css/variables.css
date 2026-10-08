@@ -1,6 +1,6 @@
 /* ==========================================================================
    Variables du site Azurine — direction « éditorial doux »
-   Fond papier crème, deux couleurs : bleu-vert (teal) et terracotta.
+   Fond papier crème, deux couleurs : bleu-vert (teal) et mauve.
    Tailles de texte et espacements fluides (clamp) : ils s'ajustent seuls
    entre mobile et desktop. Point d'arrêt de mise en page unique :
    @media (min-width: 921px) (les variables CSS ne fonctionnent pas dans
@@ -22,8 +22,8 @@
   --teal-deep: #24403f;      /* pied de page (texte papier 10.5:1) */
   --mist: #cfe0dd;           /* texte secondaire sur teal-deep (8.2:1), sélection */
 
-  --terra: #a95b33;          /* boutons et accents (texte blanc 5:1) */
-  --terra-hover: #8f4a27;
+  --mauve: #73588e;          /* boutons et accents (texte blanc 6:1, papier 5.6:1, sable 5:1) */
+  --mauve-hover: #5e4680;    /* texte blanc 7.9:1 */
 
   /* --- Polices ----------------------------------------------------------------- */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;

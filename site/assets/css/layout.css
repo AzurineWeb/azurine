@@ -167,7 +167,7 @@ html.has-menu-open {
 
 .main-nav__link[aria-current='page'],
 .main-nav__item--has-submenu.is-current > .main-nav__toggle {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .main-nav__chevron {

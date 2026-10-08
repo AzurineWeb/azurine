@@ -3,7 +3,7 @@
  *
  *  1. Menu mobile : bouton « burger » qui ouvre / ferme le panneau plein écran.
  *  2. Sous-menu « Soins proposés » (clic, clavier, touche Échap).
- *  3. Carte Google Maps (salle-de-soin.html) : chargée seulement après un clic,
+ *  3. Carte Google Maps (prendre-rdv.html) : chargée seulement après un clic,
  *     car Google dépose des cookies (voir confidentialite.html).
  *  4. En-tête : filet et ombre dès que la page défile.
  *  5. Formulaire de contact : bouton « Envoi en cours… » pour éviter un double envoi.
@@ -90,7 +90,7 @@ function initMaps() {
       const frame = document.createElement('iframe');
       frame.className = 'map__frame';
       frame.src = consent.dataset.mapSrc;
-      frame.title = 'Localisation de la salle de soin sur Google Maps';
+      frame.title = 'Localisation du cabinet sur Google Maps';
       frame.referrerPolicy = 'no-referrer-when-downgrade';
       consent.replaceWith(frame);
       frame.focus();

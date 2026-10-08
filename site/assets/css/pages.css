@@ -3,7 +3,7 @@
    Sommaire :
      1. Accueil (index.html)
      2. Qui suis-je ? (qui-suis-je.html)
-     3. La salle de soin (salle-de-soin.html)
+     3. Le cabinet et le plan d'accès (prendre-rdv.html)
      4. Pages de soins : soin-energetique.html, massage-sonore.html, soin-a-distance.html
      5. Tarifs (tarifs.html)
      6. Prise de RDV / Avis (prendre-rdv.html, avis.html)
@@ -41,7 +41,7 @@
 }
 
 .hero__title em {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 /* Retours à la ligne choisis sur desktop ; sur mobile, le texte coule librement */
@@ -320,7 +320,7 @@
 }
 
 .care-item:hover .link-arrow {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .care-item:hover .link-arrow__icon {
@@ -407,7 +407,7 @@
   right: 4px;
   width: 16px;
   height: 1.5px;
-  background: var(--terra);
+  background: var(--mauve);
   transition: transform var(--dur) var(--ease-out);
 }
 
@@ -571,7 +571,7 @@
 }
 
 .contact__details a:hover {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .contact__details .icon {
@@ -592,7 +592,7 @@
 
 
 /* ==========================================================================
-   3. La salle de soin
+   3. Le cabinet et le plan d'accès (prendre-rdv.html)
    ========================================================================== */
 .salle-gallery {
   display: grid;
@@ -818,7 +818,7 @@
 }
 
 .price-group__title a:hover {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .price-group__duration {
@@ -924,7 +924,7 @@
 }
 
 .booking__phone:hover {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .booking__option .btn {
@@ -1010,7 +1010,7 @@
   height: 0.7em;
   padding: 0 var(--space-2xs);
   background: linear-gradient(var(--letter-around) 0.37em, var(--letter-fill) 0.37em); /* 0.37em = hauteur du filet (top) */
-  color: var(--terra);
+  color: var(--mauve);
   font-family: var(--font-display);
   font-size: 5rem;
   line-height: 1;
@@ -1113,7 +1113,7 @@
   display: flex;
   gap: 2px;
   margin-bottom: var(--space-xs);
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .google-reviews__stars svg {
