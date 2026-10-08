@@ -946,6 +946,7 @@
 }
 
 .testimonial__quote {
+  max-width: 60ch; /* un avis seul ne s'étire pas sur toute la largeur */
   font-family: var(--font-display);
   font-size: var(--step-1);
   font-style: italic;
