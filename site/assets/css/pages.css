@@ -936,7 +936,7 @@
   color: var(--teal);
 }
 
-/* --- Avis : témoignages (liste prête dans avis.html, en commentaire) ------------ */
+/* --- Avis : témoignages (avis.html, et avis Google de avis-google.js) ----------- */
 .testimonials {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -961,6 +961,67 @@
 
 .testimonial__author a {
   color: var(--teal);
+}
+
+/* Témoignages écrits à la main (avis.html) : présentés comme une lettre signée.
+   Le guillemet « est à cheval sur le cadre : son fond (sable au-dessus du filet,
+   papier en dessous) masque le filet derrière lui, d'où la section section--sand
+   obligatoire autour de la liste. */
+.testimonials--letters .testimonial {
+  position: relative;
+  max-width: 46rem;
+  margin-top: var(--space-s);
+  padding: var(--space-xl) var(--space-l) var(--space-l);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+}
+
+.testimonials--letters .testimonial::before {
+  content: "\00AB";
+  position: absolute;
+  top: -0.6em;
+  left: var(--space-m);
+  padding: 0 var(--space-2xs);
+  background: linear-gradient(var(--sand) 0.6em, var(--paper) 0.6em); /* 0.6em = hauteur du filet (top) */
+  color: var(--terra);
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.testimonials--letters .testimonial__quote {
+  max-width: none;
+}
+
+.testimonials--letters .testimonial__author {
+  margin-top: var(--space-m);
+  color: var(--teal);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+}
+
+.testimonials--letters .testimonial__author::before {
+  content: "\2014\00A0"; /* tiret cadratin + espace insécable avant le prénom */
+}
+
+.testimonials--letters .testimonial__date {
+  display: block;
+  color: var(--ink-soft);
+  font-family: var(--font-text);
+  font-size: var(--step--1);
+  font-style: normal;
+}
+
+@media (min-width: 921px) {
+  .testimonials--letters .testimonial {
+    padding: var(--space-xl) var(--space-xl) var(--space-l);
+  }
+
+  .testimonials--letters .testimonial::before {
+    left: var(--space-l);
+  }
 }
 
 /* --- Avis : avis Google automatiques (assets/js/avis-google.js) ----------------- */
