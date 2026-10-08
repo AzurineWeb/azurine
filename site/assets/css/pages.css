@@ -756,6 +756,18 @@
   margin-top: var(--space-l);
 }
 
+/* Avis sur la page du soin : lettre signée sur fond papier (voir « Avis : témoignages ») */
+.testimonials--letters.care-page__review { /* 2 classes : passe devant .testimonials--letters, défini plus bas */
+  --letter-around: var(--paper);
+  --letter-fill: var(--sand);
+  justify-content: start;
+}
+
+.prose > .care-page__review {
+  margin-top: var(--space-2xl);
+  padding: 0;
+}
+
 @media (min-width: 921px) {
   .care-page__inner {
     grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
@@ -963,10 +975,20 @@
   color: var(--teal);
 }
 
-/* Témoignages écrits à la main (avis.html) : présentés comme une lettre signée.
-   Le guillemet « est à cheval sur le cadre : son fond (sable au-dessus du filet,
-   papier en dessous) masque le filet derrière lui, d'où la section section--sand
-   obligatoire autour de la liste. */
+/* Témoignages écrits à la main (avis.html, massage-sonore.html) : lettres signées,
+   empilées et centrées (pas de carrousel avant ~6 avis : tout reste visible).
+   Le guillemet « est à cheval sur le cadre : son fond reprend la couleur autour
+   du cadre (--letter-around) au-dessus du filet et celle du cadre (--letter-fill)
+   en dessous, ce qui masque le filet derrière lui. Par défaut : section sable,
+   cadre papier ; sur fond papier, inverser les deux variables. */
+.testimonials--letters {
+  --letter-around: var(--sand);
+  --letter-fill: var(--paper);
+  grid-template-columns: minmax(0, 46rem);
+  justify-content: center;
+  gap: var(--space-2xl);
+}
+
 .testimonials--letters .testimonial {
   position: relative;
   max-width: 46rem;
@@ -974,7 +996,7 @@
   padding: var(--space-xl) var(--space-l) var(--space-l);
   border: 1px solid var(--line);
   border-radius: var(--radius-m);
-  background: var(--paper);
+  background: var(--letter-fill);
 }
 
 .testimonials--letters .testimonial::before {
@@ -983,7 +1005,7 @@
   top: -0.6em;
   left: var(--space-m);
   padding: 0 var(--space-2xs);
-  background: linear-gradient(var(--sand) 0.6em, var(--paper) 0.6em); /* 0.6em = hauteur du filet (top) */
+  background: linear-gradient(var(--letter-around) 0.6em, var(--letter-fill) 0.6em); /* 0.6em = hauteur du filet (top) */
   color: var(--terra);
   font-family: var(--font-display);
   font-size: 4.5rem;
@@ -1022,6 +1044,35 @@
   .testimonials--letters .testimonial::before {
     left: var(--space-l);
   }
+}
+
+/* Après les avis : prendre rendez-vous */
+.testimonials__next {
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
+/* --- Avis : inviter à laisser un avis (dernière section de avis.html) ---------- */
+.review-invite__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-m);
+  max-width: 40rem;
+  text-align: center;
+}
+
+.review-invite__title {
+  font-size: var(--step-2);
+}
+
+.review-invite__text {
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+  line-height: var(--lh-snug);
+}
+
+.review-invite .actions {
+  justify-content: center;
 }
 
 /* --- Avis : avis Google automatiques (assets/js/avis-google.js) ----------------- */
