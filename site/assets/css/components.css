@@ -45,6 +45,14 @@
   box-shadow: none;
 }
 
+/* Pendant l'envoi du formulaire (« Envoi en cours… ») */
+.btn:disabled {
+  background: var(--btn-bg);
+  transform: none;
+  box-shadow: none;
+  cursor: progress;
+}
+
 .btn--primary {
   --btn-bg: var(--terra);
   --btn-bg-hover: var(--terra-hover);
@@ -59,12 +67,6 @@
 
 .btn--outline:hover {
   color: var(--paper);
-}
-
-.btn--light {
-  --btn-bg: var(--paper);
-  --btn-bg-hover: var(--white);
-  --btn-color: var(--teal-deep);
 }
 
 .btn--small {
@@ -118,23 +120,14 @@
   background: var(--sand);
 }
 
-.shape-egg,
-.shape-organic {
+.shape-egg {
   border-radius: 0;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-}
-
-.shape-egg {
   -webkit-mask-image: var(--shape-egg);
   mask-image: var(--shape-egg);
-}
-
-.shape-organic {
-  -webkit-mask-image: var(--shape-organic);
-  mask-image: var(--shape-organic);
 }
 
 .shape-circle {

@@ -5,3 +5,6 @@
 .DS_Store
 Thumbs.db
 
+
+# Outils de conception (impeccable) : jamais livrés à la cliente
+.impeccable/

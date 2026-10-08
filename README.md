@@ -76,6 +76,7 @@ endroits, un commentaire `<!-- … -->` dans le code le rappelle.
 | Le lien de **réservation en ligne** (Cal.com) | `prendre-rdv.html` (seul endroit) ; si l'outil change, aussi `confidentialite.html` et `mentions-legales.html` |
 | Les **questions fréquentes** | `index.html`, section « Questions fréquentes » (un bloc `<details>` par question) |
 | Un **avis** | `avis.html` : mode d'emploi en commentaire dans la page |
+| Les **avis Google automatiques** (préparés, pas encore activés) | guide `guide-avis-google.pdf` remis à part ; réglages en haut de `assets/js/avis-google.js` |
 | Le **texte d'un soin** | la page du soin |
 | La **présentation de Karine** | `qui-suis-je.html` |
 | Le **téléphone**, l'**e-mail**, l'**adresse** | toutes les pages (pied de page) : utiliser *Édition → Remplacer dans les fichiers* (`Ctrl+Maj+H`) ; aussi les informations pour Google en haut de `index.html` |

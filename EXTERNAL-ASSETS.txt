@@ -13,6 +13,11 @@ Services externes conservés volontairement (liens ou intégrations) :
   - Instagram d'Azurine         pied de page de toutes les pages, qui-suis-je.html
   - Netlify Forms               formulaire de qui-suis-je.html (hébergement Netlify)
 
+Préparé mais PAS ACTIVÉ (rien n'est chargé tant que la clé est vide) :
+  - Google Maps Platform        avis.html — avis Google automatiques (assets/js/avis-google.js),
+    (Places API)                chargé à l'ouverture de la page une fois activé ; paragraphe prêt
+                                en commentaire dans confidentialite.html
+
 Mise à jour du 7 octobre 2026 : les pages du modèle Hostinger (magnetisme.html,
 conjurations.html, lecture-de-memoires-akashiques.html), leurs photos (modele-*.jpg) et
 les liens vers des comptes sociaux tiers ont été supprimés. Les anciennes adresses sont

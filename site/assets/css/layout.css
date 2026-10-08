@@ -290,7 +290,6 @@ html.has-menu-open {
     min-width: 290px;
     padding: var(--space-xs);
     background: var(--white);
-    border: 1px solid var(--line);
     border-radius: var(--radius-m);
     box-shadow: var(--shadow-float);
     visibility: hidden;
