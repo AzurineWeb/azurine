@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Référencement : titre (60 caractères maximum) et description (160 maximum) affichés par Google -->
+  <title>Prendre rendez-vous | Azurine, énergéticienne à Carquefou</title>
+  <meta name="description" content="Prenez rendez-vous avec Azurine, énergéticienne à Carquefou, par téléphone au 06 62 41 94 03 ou en ligne.">
+  <meta name="theme-color" content="#fbf7f2">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Azurine">
+  <meta property="og:title" content="Prendre rendez-vous | Azurine, énergéticienne à Carquefou">
+  <meta property="og:description" content="Prenez rendez-vous avec Azurine, énergéticienne à Carquefou, par téléphone au 06 62 41 94 03 ou en ligne.">
+  <meta property="og:image" content="https://azurine.fr/assets/images/partage-azurine.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Azurine, énergéticienne, et papillon posé sur une fleur de lavande">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://azurine.fr/prendre-rdv.html">
+  <meta property="og:url" content="https://azurine.fr/prendre-rdv.html">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/icons/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ===== EN-TÊTE ==========================================================
+       Identique sur toutes les pages : une modification du menu se fait dans
+       les 13 fichiers .html. Seule différence d'une page à l'autre :
+       aria-current="page" sur le lien de la page affichée. -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <img src="assets/images/logo-azurine.png" alt="Azurine, énergéticienne – accueil" width="421" height="241">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a class="main-nav__link" href="index.html">Accueil</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="qui-suis-je.html">Qui suis-je ?</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="salle-de-soin.html">La salle de soin</a></li>
+          <li class="main-nav__item main-nav__item--has-submenu">
+            <button class="main-nav__toggle" type="button" aria-expanded="false" aria-controls="submenu-soins">
+              <span class="main-nav__toggle-label">Soins proposés</span>
+              <svg class="main-nav__chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m1 1.5 5 5 5-5"/></svg>
+            </button>
+            <ul class="main-nav__submenu" id="submenu-soins">
+              <li class="main-nav__item"><a class="main-nav__link" href="soin-energetique.html">Soin énergétique</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="massage-sonore.html">Massage sonore aux bols tibétains</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="soin-a-distance.html">Soin à distance</a></li>
+            </ul>
+          </li>
+          <li class="main-nav__item"><a class="main-nav__link" href="tarifs.html">Tarifs</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="avis.html">Avis</a></li>
+        </ul>
+        <a class="btn btn--primary btn--small main-nav__cta" href="prendre-rdv.html" aria-current="page">Prendre RDV</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-head">
+      <div class="container page-head__inner">
+        <h1 class="page-head__title">Prendre rendez-vous</h1>
+        <p class="page-head__lead">Deux possibilités, selon ce qui vous convient le mieux.</p>
+      </div>
+    </section>
+
+    <section class="booking">
+      <div class="container">
+        <div class="booking__options">
+          <div class="booking__option panel">
+            <h2>En ligne</h2>
+            <p>Choisissez votre créneau à tout moment, sur l'agenda en ligne.</p>
+            <!-- Lien de réservation Cal.com : seul endroit du site où il figure -->
+            <a class="btn btn--primary" href="https://cal.com/azurine" target="_blank" rel="noopener">Réserver en ligne</a>
+          </div>
+          <div class="booking__option panel">
+            <h2>Par téléphone</h2>
+            <a class="booking__phone" href="tel:+33662419403">06 62 41 94 03</a>
+            <p>N'hésitez pas à laisser un message, je vous rappelle.</p>
+          </div>
+        </div>
+        <!-- Horaires et annulation : seul endroit du site où ils figurent
+             (penser à mettre aussi les horaires à jour sur la fiche Google) -->
+        <dl class="facts booking__facts">
+          <div class="facts__row"><dt>Horaires habituels</dt><dd>Lundi de 11 h à 17 h<br>Vendredi de 11 h à 18 h</dd></div>
+          <div class="facts__row"><dt>Accueil</dt><dd>Uniquement sur rendez-vous</dd></div>
+          <div class="facts__row"><dt>Annulation ou report</dt><dd>Sans frais et sans délai minimum</dd></div>
+          <div class="facts__row"><dt>Soin à distance</dt><dd>Renseignements par téléphone</dd></div>
+        </dl>
+        <p class="booking__info">La salle de soin se trouve au 18 rue de la Salle, à Carquefou (<a href="salle-de-soin.html">voir le plan</a>).</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== PIED DE PAGE =====================================================
+       Identique sur toutes les pages : une modification (téléphone, e-mail…)
+       se fait dans les 13 fichiers .html. -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="index.html">
+          <img src="assets/images/logo-azurine.png" alt="Azurine, énergéticienne – accueil" width="421" height="241" loading="lazy">
+        </a>
+        <p>Énergéticienne à Carquefou.<br>Soins énergétiques, massages sonores et soins à distance.</p>
+      </div>
+
+      <nav aria-labelledby="footer-soins">
+        <h2 class="site-footer__title" id="footer-soins">Soins</h2>
+        <ul class="site-footer__list">
+          <li><a href="soin-energetique.html">Soin énergétique</a></li>
+          <li><a href="massage-sonore.html">Massage sonore aux bols tibétains</a></li>
+          <li><a href="soin-a-distance.html">Soin à distance</a></li>
+          <li><a href="tarifs.html">Tarifs et bons cadeaux</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-azurine">
+        <h2 class="site-footer__title" id="footer-azurine">Azurine</h2>
+        <ul class="site-footer__list">
+          <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+          <li><a href="salle-de-soin.html">La salle de soin</a></li>
+          <li><a href="avis.html">Avis</a></li>
+          <li><a href="prendre-rdv.html">Prendre rendez-vous</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="site-footer__title">Contact</h2>
+        <ul class="site-footer__list">
+          <li><a href="tel:+33662419403"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.5 3.5h2.6l1.6 4.2-2 1.3a11 11 0 0 0 6.3 6.3l1.3-2 4.2 1.6v2.6a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 4.5 5.6a2 2 0 0 1 2-2.1z"/></svg>06 62 41 94 03</a></li>
+          <li><a href="mailto:contact@azurine.fr"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>contact@azurine.fr</a></li>
+          <li><a href="https://www.instagram.com/azurine_energeticienne" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg>Instagram</a></li>
+          <li><a href="salle-de-soin.html"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>18 rue de la Salle, Carquefou</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <ul class="site-footer__legal">
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+      </ul>
+      <p>© 2026 Azurine</p>
+    </div>
+  </footer>
+</body>
+</html>

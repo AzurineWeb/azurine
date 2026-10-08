@@ -5,6 +5,3 @@
 .DS_Store
 Thumbs.db
 
-# Site généré par build.py (Netlify le régénère à chaque mise en ligne)
-public/
-__pycache__/

@@ -2,18 +2,18 @@ RESSOURCES EXTERNES — état au 8 octobre 2026
 =============================================
 
 Toutes les images, polices, feuilles de style et scripts sont désormais locaux
-(dossier static/assets/). Aucun fichier n'est plus chargé depuis assets.zyrosite.com
+(dossier site/assets/). Aucun fichier n'est plus chargé depuis assets.zyrosite.com
 ni depuis Hostinger.
 
 Services externes conservés volontairement (liens ou intégrations) :
   - Google Maps (iframe)        salle-de-soin.html — chargée seulement après un clic sur
                                 « Afficher la carte » (cookies Google, voir confidentialite.html)
-  - Cal.com (prise de RDV)      index.html, prendre-rdv.html, pages de soins   https://cal.com/azurine
-                                (simple lien, rien n'est chargé depuis Cal.com ; adresse dans infos.toml)
+  - Cal.com (prise de RDV)      prendre-rdv.html (seul endroit)   https://cal.com/azurine
+                                (simple lien, rien n'est chargé depuis Cal.com)
   - Instagram d'Azurine         pied de page de toutes les pages, qui-suis-je.html
   - Netlify Forms               formulaire de qui-suis-je.html (hébergement Netlify)
 
 Mise à jour du 7 octobre 2026 : les pages du modèle Hostinger (magnetisme.html,
 conjurations.html, lecture-de-memoires-akashiques.html), leurs photos (modele-*.jpg) et
 les liens vers des comptes sociaux tiers ont été supprimés. Les anciennes adresses sont
-redirigées par le fichier _redirects.
+redirigées par le fichier site/_redirects.
