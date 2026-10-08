@@ -54,6 +54,14 @@ Le formulaire de contact ne fonctionne qu'une fois en ligne : c'est normal.
 3. Cliquer sur **Valider** (*Commit*), puis sur **Synchroniser les modifications** (*Sync* / *Push*).
 4. Le site est en ligne environ une minute plus tard (Netlify publie automatiquement).
 
+**Regrouper les modifications.** Chaque publication coûte 15 crédits Netlify, et l'offre gratuite
+en compte 300 par mois, soit une vingtaine de publications. Faire toutes ses modifications,
+les vérifier avec Live Server, puis publier une seule fois. On peut faire plusieurs *Valider*
+(commits) et un seul *Synchroniser* à la fin : c'est le *Synchroniser* qui publie. Une
+modification qui ne touche pas le dossier `site/` (ce README par exemple) n'est pas publiée
+et ne coûte rien. Revenir à une version précédente dans Netlify ne coûte rien non plus.
+Netlify envoie un e-mail à 50 % puis à 100 % des crédits du mois.
+
 ## Où modifier quoi
 
 Chaque information est écrite le moins souvent possible. Quand elle figure à plusieurs

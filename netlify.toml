@@ -4,3 +4,6 @@
 [build]
   publish = "site"
   command = ""
+  # Chaque mise en ligne coûte 15 crédits Netlify (300 par mois sur l'offre gratuite).
+  # Une modification qui ne touche pas site/ (README, documentation) n'est pas publiée.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- site/"
