@@ -1,0 +1,11 @@
+# Configuration Netlify (prioritaire sur les réglages de l'interface).
+# À chaque push sur main, Netlify génère le site à partir de infos.toml et de build.py,
+# puis publie le dossier public/. Si la génération échoue (erreur dans infos.toml),
+# la version précédente reste en ligne.
+[build]
+  command = "python3 -I build.py"
+  publish = "public"
+
+[build.environment]
+  # tomllib (lecture de infos.toml) demande Python 3.11 ou plus récent
+  PYTHON_VERSION = "3.12"
