@@ -73,7 +73,6 @@
   /* Formes organiques (masques SVG en data-URI, fonctionnent aussi en file://).
      À réserver à quelques photos clés : accueil, portrait. */
   --shape-egg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'%3E%3Cpath d='M121.089 0C174.339 0 200 65.9669 200 126.582C200 171.887 160.89 200 121.089 200C67.5113 200 0 187.57 0 126.582C0 53.4983 56.886 0 121.089 0Z'/%3E%3C/svg%3E");
-  --shape-organic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'%3E%3Cpath d='M168.562 42.5672C184.281 55.141 200 76.1523 200 99.8108C200 123.635 184.127 150.271 157.312 171.283C130.497 192.294 92.8952 207.68 62.9983 195.934C33.1014 184.187 11.064 145.473 3.2045 104.278C-4.655 63.2477 1.81753 19.9014 24.009 5.83869C46.2005 -8.38948 84.111 6.66591 110.772 16.2617C137.432 25.8574 152.997 29.9935 168.562 42.5672Z'/%3E%3C/svg%3E");
 }
 
 @media (min-width: 921px) {
