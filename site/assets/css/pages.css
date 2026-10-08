@@ -758,6 +758,7 @@
 
 /* Avis sur la page du soin : lettre signée sur fond papier (voir « Avis : témoignages ») */
 .testimonials--letters.care-page__review { /* 2 classes : passe devant .testimonials--letters, défini plus bas */
+  grid-template-columns: minmax(0, 46rem); /* un seul avis, dans la colonne de texte */
   --letter-around: var(--paper);
   --letter-fill: var(--sand);
   justify-content: start;
@@ -976,8 +977,9 @@
 }
 
 /* Témoignages écrits à la main (avis.html, massage-sonore.html) : lettres signées,
-   empilées et centrées (pas de carrousel avant ~6 avis : tout reste visible).
-   Le guillemet « est à cheval sur le cadre : son fond reprend la couleur autour
+   une colonne sur mobile, deux sur ordinateur (pas de carrousel avant ~6 avis :
+   tout reste visible).
+   Le guillemet “ est à cheval sur le cadre : son fond reprend la couleur autour
    du cadre (--letter-around) au-dessus du filet et celle du cadre (--letter-fill)
    en dessous, ce qui masque le filet derrière lui. Par défaut : section sable,
    cadre papier ; sur fond papier, inverser les deux variables. */
@@ -986,12 +988,13 @@
   --letter-fill: var(--paper);
   grid-template-columns: minmax(0, 46rem);
   justify-content: center;
-  gap: var(--space-2xl);
+  gap: var(--space-2xl) var(--space-xl);
 }
 
 .testimonials--letters .testimonial {
   position: relative;
-  max-width: 46rem;
+  display: flex;
+  flex-direction: column;
   margin-top: var(--space-s);
   padding: var(--space-xl) var(--space-l) var(--space-l);
   border: 1px solid var(--line);
@@ -1000,24 +1003,28 @@
 }
 
 .testimonials--letters .testimonial::before {
-  content: "\00AB";
+  content: "\201C";
   position: absolute;
-  top: -0.6em;
+  top: -0.37em;
   left: var(--space-m);
+  height: 0.7em;
   padding: 0 var(--space-2xs);
-  background: linear-gradient(var(--letter-around) 0.6em, var(--letter-fill) 0.6em); /* 0.6em = hauteur du filet (top) */
+  background: linear-gradient(var(--letter-around) 0.37em, var(--letter-fill) 0.37em); /* 0.37em = hauteur du filet (top) */
   color: var(--terra);
   font-family: var(--font-display);
-  font-size: 4.5rem;
+  font-size: 5rem;
   line-height: 1;
 }
 
 .testimonials--letters .testimonial__quote {
   max-width: none;
+  text-wrap: pretty; /* lignes plus équilibrées, sans mot isolé en fin d'avis */
 }
 
+/* Signature poussée en bas : alignée d'une carte à l'autre sur ordinateur */
 .testimonials--letters .testimonial__author {
-  margin-top: var(--space-m);
+  margin-top: auto;
+  padding-top: var(--space-m);
   color: var(--teal);
   font-family: var(--font-display);
   font-size: var(--step-1);
@@ -1037,6 +1044,17 @@
 }
 
 @media (min-width: 921px) {
+  .testimonials--letters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Page Avis, nombre impair d'avis : le dernier se centre sous les autres */
+  .reviews .testimonial:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - var(--space-xl) / 2);
+  }
+
   .testimonials--letters .testimonial {
     padding: var(--space-xl) var(--space-xl) var(--space-l);
   }
@@ -1044,6 +1062,11 @@
   .testimonials--letters .testimonial::before {
     left: var(--space-l);
   }
+}
+
+/* Section des avis : moins d'air au-dessus, pour montrer la première lettre plus tôt */
+.reviews {
+  padding-top: var(--space-2xl);
 }
 
 /* Après les avis : prendre rendez-vous */
