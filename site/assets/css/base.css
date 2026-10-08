@@ -114,6 +114,11 @@ a {
   transition: color var(--dur-fast) ease, text-decoration-color var(--dur-fast) ease;
 }
 
+/* Un numéro de téléphone ne se coupe jamais en fin de ligne */
+a[href^="tel:"] {
+  white-space: nowrap;
+}
+
 strong {
   font-weight: 600;
 }

@@ -1,116 +1,129 @@
-# Azurine — site statique
+# Azurine — site internet
 
-Site vitrine d'Azurine, énergéticienne à Carquefou.
-HTML, CSS et JavaScript « vanilla », générés par un script Python sans dépendance.
+Site vitrine d'Azurine, énergéticienne à Carquefou : https://azurine.fr
 
-## Fonctionnement
+Le site est fait de pages HTML et de feuilles de style CSS, sans outil ni étape de génération :
+ce qui est dans le dossier `site/` est exactement ce qui est mis en ligne.
 
-Le site est **généré** : on ne modifie jamais les pages HTML à la main.
+## Organisation
 
 ```
-infos.toml    informations modifiables par la cliente : tarifs, horaires, coordonnées,
-              lien de réservation, questions fréquentes, avis
-build.py      générateur : structure et textes des pages ; vérifie infos.toml
-static/       fichiers copiés tels quels (assets/, favicon.ico, site.webmanifest,
-              _redirects, _headers)
-public/       site généré (non versionné) : c'est ce dossier que Netlify publie
-netlify.toml  commande de génération et dossier publié, version de Python
-sources/      fichiers sources non publiés (icône du site en 512 px)
+site/                      LE SITE (seul dossier mis en ligne)
+  index.html               Accueil : présentation, soins, bons cadeaux, questions fréquentes
+  qui-suis-je.html         Présentation de Karine + formulaire de contact
+  salle-de-soin.html       Photos de la salle de soin + plan d'accès
+  soin-energetique.html    ┐
+  massage-sonore.html      ├ pages des soins
+  soin-a-distance.html     ┘
+  tarifs.html              Tarifs, règlement, bons cadeaux
+  prendre-rdv.html         Réservation en ligne, téléphone, horaires, annulation
+  avis.html                Lien vers les avis Google (+ modèle de témoignages)
+  mentions-legales.html    ┐ pages légales
+  confidentialite.html     ┘
+  merci.html               Page affichée après l'envoi du formulaire
+  404.html                 Page « introuvable »
+  assets/                  CSS, JavaScript, polices, images, icônes
+  favicon.ico, site.webmanifest, sitemap.xml, robots.txt, _redirects, _headers
+sources/                   Fichiers de travail non publiés (icône en grand format)
+netlify.toml               Réglage Netlify : publier le dossier site/
 ```
-
-À chaque push sur `main`, Netlify lance `python3 -I build.py` puis publie `public/`.
-Si `infos.toml` contient une erreur, la génération s'arrête avec un message en français
-et **la version précédente reste en ligne**.
-
-La même génération tourne dans GitHub Actions (`.github/workflows/verification.yml`,
-gratuit) : en cas d'erreur, croix rouge à côté du commit et e-mail de GitHub à son auteur,
-avec le message dans le détail de la vérification. (Les e-mails d'échec de Netlify sont
-payants.)
 
 ## Modifier le site
 
-- **Tarif, horaire, coordonnées, question fréquente, avis** : modifier `infos.toml`
-  (sur GitHub : ouvrir le fichier, crayon « Edit this file », « Commit changes »).
-  Le mode d'emploi est en tête du fichier.
-- **Texte d'une page, menu, pied de page** : `build.py` (une section par page ;
-  menu dans `NAV` / `SOINS`, pied de page dans `footer()`).
-- **Styles, scripts, images** : `static/assets/`.
+### 1. Ouvrir le projet
 
-## Prévisualiser en local
+Dans VS Code : *Fichier → Ouvrir le dossier…* et choisir le dossier du dépôt (celui qui
+contient `site/`). Au premier lancement, VS Code propose d'installer l'extension
+**Live Server** : accepter.
 
-Python 3.11 ou plus récent, aucune dépendance :
+### 2. Modifier et vérifier
 
-```bash
-python3 -I build.py                       # génère public/
-python3 -m http.server 8080 -d public     # puis http://localhost:8080/
-```
+1. Ouvrir la page dans `site/` (voir le tableau ci-dessous) et modifier le texte.
+   Ne changer que le texte entre les balises, pas ce qui est entre `<` et `>`.
+2. Enregistrer (`Ctrl+S`).
+3. Cliquer sur **Go Live** en bas à droite de VS Code : le site s'ouvre dans le navigateur
+   et se met à jour à chaque enregistrement. Vérifier la page sur ordinateur, puis en
+   réduisant la fenêtre (affichage téléphone).
 
-Le formulaire de contact (Netlify Forms) ne fonctionne qu'une fois en ligne.
+Le formulaire de contact ne fonctionne qu'une fois en ligne : c'est normal.
 
-## Organisation de `public/` (généré)
+### 3. Publier
 
-```
-index.html                 Accueil (activité, soins, bons cadeaux, FAQ, prise de RDV)
-qui-suis-je.html           Présentation + formulaire de contact (Netlify Forms)
-salle-de-soin.html         Photos de la salle de soin, horaires, plan Google Maps chargé au clic
-soin-energetique.html      ┐
-massage-sonore.html        ├ menu « Soins proposés »
-soin-a-distance.html       ┘
-tarifs.html                Tarifs, règlement, annulation, bons cadeaux (#bons-cadeaux)
-prendre-rdv.html           Réservation en ligne (Cal.com) ou par téléphone
-avis.html                  Lien vers les avis Google ; témoignages ([[avis]] de infos.toml)
-mentions-legales.html      ┐ pages légales
-confidentialite.html       ┘
-merci.html                 Page affichée après l'envoi du formulaire
-404.html                   Page d'erreur Netlify (chemins absolus /assets/…)
-sitemap.xml, robots.txt    lastmod = date du dernier commit
-```
+1. Dans VS Code, ouvrir l'onglet **Contrôle de code source** (icône à gauche, ou `Ctrl+Maj+G`).
+2. Écrire un court message (par exemple « Nouveau tarif du massage sonore »).
+3. Cliquer sur **Valider** (*Commit*), puis sur **Synchroniser les modifications** (*Sync* / *Push*).
+4. Le site est en ligne environ une minute plus tard (Netlify publie automatiquement).
 
-`static/assets/` :
+## Où modifier quoi
 
-```
-css/
-  variables.css    couleurs, échelle typographique fluide, espacements, formes
-  base.css         polices locales, remise à zéro, utilitaires
-  layout.css       conteneur, grille 12 colonnes, en-tête, menu, pied de page
-  components.css   boutons, photos et formes, titres, fiche pratique, encarts, formulaire
-  pages.css        styles propres à chaque page (sommaire en tête de fichier)
-js/main.js         menu mobile, sous-menu, carte Google Maps chargée au clic
-icons/             icônes du site (papillon du logo) : 192, 512 px et apple-touch-icon
-images/            photos nommées par page (accueil-, karine-, salle-) ; partage-azurine.jpg
-                   = image d'aperçu 1200 × 630 pour les réseaux sociaux
-fonts/             Playfair Display et Source Sans 3 (woff2 variables, normal + italique)
-```
+Chaque information est écrite le moins souvent possible. Quand elle figure à plusieurs
+endroits, un commentaire `<!-- … -->` dans le code le rappelle.
 
-## Conventions
+| Pour changer… | Fichier(s) dans `site/` |
+|---|---|
+| Un **prix** | `tarifs.html` **et** la page du soin (`soin-energetique.html` ou `massage-sonore.html`) |
+| Les **horaires** | `prendre-rdv.html` (seul endroit) + la fiche Google |
+| Les conditions d'**annulation** | `prendre-rdv.html` (seul endroit) |
+| Les modes de **règlement** | `tarifs.html` (seul endroit) |
+| Le lien de **réservation en ligne** (Cal.com) | `prendre-rdv.html` (seul endroit) ; si l'outil change, aussi `confidentialite.html` et `mentions-legales.html` |
+| Les **questions fréquentes** | `index.html`, section « Questions fréquentes » (un bloc `<details>` par question) |
+| Un **avis** | `avis.html` : mode d'emploi en commentaire dans la page |
+| Le **texte d'un soin** | la page du soin |
+| La **présentation de Karine** | `qui-suis-je.html` |
+| Le **téléphone**, l'**e-mail**, l'**adresse** | toutes les pages (pied de page) : utiliser *Édition → Remplacer dans les fichiers* (`Ctrl+Maj+H`) ; aussi les informations pour Google en haut de `index.html` |
+| Le **menu** | toutes les pages (en-tête) |
+| Une **photo** | remplacer le fichier dans `site/assets/images/` en gardant **exactement le même nom** (JPG, environ 1200 px de large, moins de 300 Ko) |
+| Le titre et la description d'une page **dans Google** | les lignes `<title>` et `<meta name="description">` en haut de la page |
 
-- **CSS** : jetons de `variables.css` plutôt que des valeurs en dur ; nommage BEM ;
-  « mobile d'abord », un seul point d'arrêt à 921 px (`@media (min-width: 921px)` = desktop).
-- **Photos** : classe `media` (coins arrondis). Formes organiques `shape-egg`, `shape-organic`,
-  `shape-circle`, `shape-arch` réservées à quelques photos clés. Plusieurs photos ne font que
-  375 px de large : ne pas les afficher plus grand tant que les originaux HD ne sont pas fournis.
-- **Vocabulaire** : registre du bien-être (« salle de soin », « séance », « accompagner ») ;
-  aucune maladie ni promesse de résultat.
-- **Services externes** : Cal.com, Google Maps (au clic), Instagram, Netlify Forms. Tout nouveau
-  service doit être ajouté à `EXTERNAL-ASSETS.txt` et à la politique de confidentialité.
+À ne pas modifier sans connaître le CSS : `site/assets/css/` (couleurs, polices, mise en page).
+
+## Revenir en arrière
+
+Rien n'est perdu : GitHub garde toutes les versions de chaque fichier.
+
+- **Avant de publier** (modification pas encore validée) : dans *Contrôle de code source*,
+  survoler le fichier puis cliquer sur la flèche **Ignorer les modifications** (*Discard Changes*) :
+  le fichier revient à sa dernière version publiée.
+- **Le site en ligne a un problème, urgence** : sur [app.netlify.com](https://app.netlify.com),
+  ouvrir le site, onglet **Deploys**, cliquer sur une mise en ligne précédente qui fonctionnait,
+  puis sur **Publish deploy**. Le site revient immédiatement à cette version. Corriger ensuite
+  le fichier : la prochaine publication remplacera cette version de secours.
+- **Retrouver l'ancien contenu d'une page** : sur GitHub, ouvrir le fichier et cliquer sur
+  **History** (historique). Chaque ligne est une version, avec sa date et son message.
+  Sur la version voulue, cliquer sur l'icône **`<>`** (*Browse repository at this point*),
+  rouvrir le fichier, puis copier son contenu (bouton **Copy raw file**). Le recoller dans
+  VS Code, vérifier avec Live Server, puis publier.
+
+Pour un développeur : `git revert <commit>` annule proprement une publication.
+
+## Conventions du code
+
+- **CSS** chargé dans cet ordre : `variables.css` (couleurs, tailles, espacements),
+  `base.css`, `layout.css` (grille, en-tête, pied de page), `components.css` (boutons,
+  photos, fiches, encarts, formulaire), `pages.css` (styles propres à chaque page, sommaire en
+  tête). Écrit « mobile d'abord », un seul point de rupture à 921 px, tailles fluides (`clamp`).
+- **Nommage BEM** : `.bloc__element--variante`.
+- **En-tête et pied de page** identiques sur les 13 pages, entre des commentaires bien visibles.
+  Seule différence : `aria-current="page"` sur le lien de la page affichée.
+- `404.html` utilise des chemins absolus (`/assets/…`) car Netlify l'affiche à n'importe
+  quelle adresse.
+- **Vocabulaire du bien-être** : « salle de soin », « séance », « accompagner » ; aucune maladie
+  ni promesse de résultat. Avertissement santé sur l'accueil et les 3 pages de soins.
+- **Services externes** : Cal.com (simple lien), Google Maps (chargé au clic), Instagram,
+  Netlify Forms. Tout nouveau service doit être ajouté à `EXTERNAL-ASSETS.txt` et à la politique
+  de confidentialité.
 
 ## Mise en ligne
 
 | Élément | Où | Compte |
 |---|---|---|
 | Code source | GitHub `AzurineWeb/azurine` (privé), branche `main` | organisation AzurineWeb |
-| Hébergement | Netlify, déploiement automatique à chaque push sur `main` | compte Netlify de la cliente |
+| Hébergement | Netlify, publication automatique à chaque push sur `main` (dossier `site/`, voir `netlify.toml`) | compte Netlify de la cliente |
 | Domaine `azurine.fr` + boîte `contact@azurine.fr` | OVH (zone DNS gérée chez OVH) | compte OVH de la cliente |
 | Réservation en ligne | Cal.com (`cal.com/azurine`) | compte de la cliente |
 
-**Netlify** : commande `python3 -I build.py`, dossier publié `public/`, Python 3.12 (tout est dans `netlify.toml`, prioritaire sur l'interface).
-L'application GitHub de Netlify n'a accès qu'au dépôt `azurine` (« Only select repositories »).
-
-- **Formulaire de contact** : détecté automatiquement (`data-netlify="true"` dans
-  `qui-suis-je.html`). Notification vers `contact@azurine.fr` : *Project configuration > Forms >
-  Form notifications > Email notification*.
-- **Domaine** : la zone DNS reste chez OVH (pour ne pas toucher aux enregistrements de la
-  messagerie). `azurine.fr` pointe vers Netlify par un enregistrement **A** et `www.azurine.fr`
-  par un **CNAME** vers `<site>.netlify.app`. Les enregistrements **MX / SPF** d'OVH ne doivent
-  pas être modifiés. Le domaine principal est `azurine.fr` (sans www) : il est défini par
-  `SITE_URL` dans `build.py` (balises `canonical` / `og:`, `sitemap.xml`, `robots.txt`).
+- **Formulaire de contact** : Netlify Forms (`data-netlify="true"` dans `qui-suis-je.html`),
+  notification vers `contact@azurine.fr`.
+- **Domaine** : `azurine.fr` pointe vers Netlify (enregistrement A), `www.azurine.fr` par un
+  CNAME. Ne pas modifier les enregistrements MX / SPF d'OVH (messagerie).
+- **Anciennes adresses** (ancien site Hostinger, `le-cabinet.html`) : redirigées par `site/_redirects`.
