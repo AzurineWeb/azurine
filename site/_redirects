@@ -8,6 +8,9 @@
 /lecture-de-memoires-akashiques       /                        301
 /qui-suis-je-                         /qui-suis-je             301
 /qui-suis-je-.html                    /qui-suis-je.html        301
-# Page « Le cabinet » renommée « La salle de soin » (vocabulaire demandé par la cliente, 08/10/2026)
-/le-cabinet.html                      /salle-de-soin.html      301
-/le-cabinet                           /salle-de-soin           301
+# Ancienne page « Le cabinet », puis « La salle de soin » : son contenu est
+# maintenant dans « Prendre rendez-vous » (demande de la cliente, 08/10/2026)
+/le-cabinet.html                      /prendre-rdv.html#cabinet   301
+/le-cabinet                           /prendre-rdv#cabinet        301
+/salle-de-soin.html                   /prendre-rdv.html#cabinet   301
+/salle-de-soin                        /prendre-rdv#cabinet        301

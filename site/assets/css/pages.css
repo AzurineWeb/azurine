@@ -3,7 +3,7 @@
    Sommaire :
      1. Accueil (index.html)
      2. Qui suis-je ? (qui-suis-je.html)
-     3. La salle de soin (salle-de-soin.html)
+     3. Le cabinet et le plan d'accès (prendre-rdv.html)
      4. Pages de soins : soin-energetique.html, massage-sonore.html, soin-a-distance.html
      5. Tarifs (tarifs.html)
      6. Prise de RDV / Avis (prendre-rdv.html, avis.html)
@@ -41,7 +41,7 @@
 }
 
 .hero__title em {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 /* Retours à la ligne choisis sur desktop ; sur mobile, le texte coule librement */
@@ -320,7 +320,7 @@
 }
 
 .care-item:hover .link-arrow {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .care-item:hover .link-arrow__icon {
@@ -407,7 +407,7 @@
   right: 4px;
   width: 16px;
   height: 1.5px;
-  background: var(--terra);
+  background: var(--mauve);
   transition: transform var(--dur) var(--ease-out);
 }
 
@@ -571,7 +571,7 @@
 }
 
 .contact__details a:hover {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .contact__details .icon {
@@ -592,12 +592,12 @@
 
 
 /* ==========================================================================
-   3. La salle de soin
+   3. Le cabinet et le plan d'accès (prendre-rdv.html)
    ========================================================================== */
 .salle-gallery {
   display: grid;
   gap: var(--space-m);
-  padding-bottom: var(--section);
+  padding-bottom: var(--space-2xl);
 }
 
 .salle-gallery figure {
@@ -654,7 +654,7 @@
 }
 
 .access__title {
-  font-size: var(--step-3);
+  font-size: var(--step-2);
 }
 
 .access__address {
@@ -756,6 +756,19 @@
   margin-top: var(--space-l);
 }
 
+/* Avis sur la page du soin : lettre signée sur fond papier (voir « Avis : témoignages ») */
+.testimonials--letters.care-page__review { /* 2 classes : passe devant .testimonials--letters, défini plus bas */
+  grid-template-columns: minmax(0, 46rem); /* un seul avis, dans la colonne de texte */
+  --letter-around: var(--paper);
+  --letter-fill: var(--sand);
+  justify-content: start;
+}
+
+.prose > .care-page__review {
+  margin-top: var(--space-2xl);
+  padding: 0;
+}
+
 @media (min-width: 921px) {
   .care-page__inner {
     grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
@@ -805,7 +818,7 @@
 }
 
 .price-group__title a:hover {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .price-group__duration {
@@ -880,6 +893,33 @@
   padding-bottom: var(--section);
 }
 
+/* En-tête : titre à gauche, horaires à droite sur ordinateur */
+.booking-head__inner {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.booking-hours {
+  display: grid;
+  gap: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--line);
+}
+
+.booking-hours dt {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.booking-hours dd {
+  margin-top: var(--space-3xs);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-variant-numeric: lining-nums;
+  line-height: var(--lh-snug);
+}
+
+/* Deux façons de réserver : même structure, l'action alignée en bas */
 .booking__options {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -888,8 +928,8 @@
 
 .booking__option {
   display: grid;
+  grid-template-rows: auto 1fr auto;
   gap: var(--space-s);
-  align-content: start;
   justify-items: start;
 }
 
@@ -898,7 +938,12 @@
 }
 
 .booking__option p {
+  max-width: 38ch;
   color: var(--ink-soft);
+}
+
+.booking__option .btn {
+  margin-top: var(--space-2xs);
 }
 
 .booking__phone {
@@ -906,37 +951,69 @@
   font-family: var(--font-display);
   font-size: var(--step-3);
   font-variant-numeric: lining-nums;
+  line-height: var(--lh-tight);
   text-decoration: none;
   white-space: nowrap;
 }
 
 .booking__phone:hover {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
-.booking__option .btn {
-  margin-top: var(--space-2xs);
+.booking__call {
+  display: grid;
+  gap: var(--space-s);
+  justify-items: start;
 }
 
-.booking__info {
+/* Bon à savoir : libellé au-dessus de la valeur, trois colonnes sur ordinateur */
+.booking-notes {
+  display: grid;
   margin-top: var(--space-xl);
+  border-top: 1px solid var(--line);
+}
+
+.booking-notes__item {
+  padding-block: var(--space-s);
+  border-bottom: 1px solid var(--line);
+}
+
+.booking-notes dt {
   color: var(--ink-soft);
+  font-size: var(--step--1);
 }
 
-.booking__info a {
-  color: var(--teal);
+.booking-notes dd {
+  margin-top: var(--space-3xs);
+  font-weight: 600;
+  text-wrap: pretty;
 }
 
-.booking__facts {
-  max-width: 44rem;
-  margin-top: var(--space-l);
+@media (min-width: 921px) {
+  .booking__call-btn {
+    display: none;
+  }
+
+  .booking-head__inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    align-items: end;
+    gap: clamp(48px, 6vw, 96px);
+  }
+
+  .booking-notes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-l);
+    border-top: 0;
+  }
+
+  .booking-notes__item {
+    padding-block: var(--space-s) 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 0;
+  }
 }
 
-.booking__facts a {
-  color: var(--teal);
-}
-
-/* --- Avis : témoignages (liste prête dans avis.html, en commentaire) ------------ */
+/* --- Avis : témoignages (avis.html, et avis Google de avis-google.js) ----------- */
 .testimonials {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -946,6 +1023,7 @@
 }
 
 .testimonial__quote {
+  max-width: 60ch; /* un avis seul ne s'étire pas sur toute la largeur */
   font-family: var(--font-display);
   font-size: var(--step-1);
   font-style: italic;
@@ -960,6 +1038,128 @@
 
 .testimonial__author a {
   color: var(--teal);
+}
+
+/* Témoignages écrits à la main (avis.html, massage-sonore.html) : lettres signées,
+   une colonne sur mobile, deux sur ordinateur (pas de carrousel avant ~6 avis :
+   tout reste visible).
+   Le guillemet “ est à cheval sur le cadre : son fond reprend la couleur autour
+   du cadre (--letter-around) au-dessus du filet et celle du cadre (--letter-fill)
+   en dessous, ce qui masque le filet derrière lui. Par défaut : section sable,
+   cadre papier ; sur fond papier, inverser les deux variables. */
+.testimonials--letters {
+  --letter-around: var(--sand);
+  --letter-fill: var(--paper);
+  grid-template-columns: minmax(0, 46rem);
+  justify-content: center;
+  gap: var(--space-2xl) var(--space-xl);
+}
+
+.testimonials--letters .testimonial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-s);
+  padding: var(--space-xl) var(--space-l) var(--space-l);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--letter-fill);
+}
+
+.testimonials--letters .testimonial::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.37em;
+  left: var(--space-m);
+  height: 0.7em;
+  padding: 0 var(--space-2xs);
+  background: linear-gradient(var(--letter-around) 0.37em, var(--letter-fill) 0.37em); /* 0.37em = hauteur du filet (top) */
+  color: var(--mauve);
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.testimonials--letters .testimonial__quote {
+  max-width: none;
+  text-wrap: pretty; /* lignes plus équilibrées, sans mot isolé en fin d'avis */
+}
+
+/* Signature poussée en bas : alignée d'une carte à l'autre sur ordinateur */
+.testimonials--letters .testimonial__author {
+  margin-top: auto;
+  padding-top: var(--space-m);
+  color: var(--teal);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+}
+
+.testimonials--letters .testimonial__author::before {
+  content: "\2014\00A0"; /* tiret cadratin + espace insécable avant le prénom */
+}
+
+.testimonials--letters .testimonial__date {
+  display: block;
+  color: var(--ink-soft);
+  font-family: var(--font-text);
+  font-size: var(--step--1);
+  font-style: normal;
+}
+
+@media (min-width: 921px) {
+  .testimonials--letters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Page Avis, nombre impair d'avis : le dernier se centre sous les autres */
+  .reviews .testimonial:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - var(--space-xl) / 2);
+  }
+
+  .testimonials--letters .testimonial {
+    padding: var(--space-xl) var(--space-xl) var(--space-l);
+  }
+
+  .testimonials--letters .testimonial::before {
+    left: var(--space-l);
+  }
+}
+
+/* Section des avis : moins d'air au-dessus, pour montrer la première lettre plus tôt */
+.reviews {
+  padding-top: var(--space-2xl);
+}
+
+/* Après les avis : prendre rendez-vous */
+.testimonials__next {
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
+/* --- Avis : inviter à laisser un avis (dernière section de avis.html) ---------- */
+.review-invite__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-m);
+  max-width: 40rem;
+  text-align: center;
+}
+
+.review-invite__title {
+  font-size: var(--step-2);
+}
+
+.review-invite__text {
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+  line-height: var(--lh-snug);
+}
+
+.review-invite .actions {
+  justify-content: center;
 }
 
 /* --- Avis : avis Google automatiques (assets/js/avis-google.js) ----------------- */
@@ -977,7 +1177,7 @@
   display: flex;
   gap: 2px;
   margin-bottom: var(--space-xs);
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .google-reviews__stars svg {

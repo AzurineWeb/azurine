@@ -4,11 +4,11 @@
 
 /* --- Boutons -------------------------------------------------------------------
    <a class="btn btn--primary">…</a>
-   Variantes : --primary (terracotta), --outline (filet encre), --light (sur fond sombre).
+   Variantes : --primary (mauve), --outline (filet encre), --light (sur fond sombre).
    Taille : --small (en-tête). */
 .btn {
-  --btn-bg: var(--terra);
-  --btn-bg-hover: var(--terra-hover);
+  --btn-bg: var(--mauve);
+  --btn-bg-hover: var(--mauve-hover);
   --btn-color: var(--white);
   --btn-border: transparent;
 
@@ -54,8 +54,8 @@
 }
 
 .btn--primary {
-  --btn-bg: var(--terra);
-  --btn-bg-hover: var(--terra-hover);
+  --btn-bg: var(--mauve);
+  --btn-bg-hover: var(--mauve-hover);
 }
 
 .btn--outline {
@@ -96,7 +96,7 @@
 }
 
 .link-arrow:hover {
-  color: var(--terra);
+  color: var(--mauve);
   text-decoration-color: currentColor;
 }
 
@@ -203,7 +203,7 @@
 }
 
 .prose li::marker {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .prose a {
@@ -211,7 +211,7 @@
 }
 
 .prose a:hover {
-  color: var(--terra);
+  color: var(--mauve);
 }
 
 .prose__lead {
@@ -349,7 +349,7 @@
 
 /* Erreur affichée seulement après une saisie (pas dès l'arrivée sur la page) */
 .contact-form__input:user-invalid {
-  border-color: var(--terra);
+  border-color: var(--mauve);
 }
 
 textarea.contact-form__input {

@@ -8,3 +8,6 @@ Thumbs.db
 
 # Outils de conception (impeccable) : jamais livrés à la cliente
 .impeccable/
+
+# Photos originales (pleine définition, données GPS) : non versionnées
+sources/photos-originales/
