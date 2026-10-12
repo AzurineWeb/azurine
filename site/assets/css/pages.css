@@ -80,18 +80,54 @@
 .hero__image {
   position: relative;
   z-index: 1;
-  aspect-ratio: 1; /* photo du papillon carrée (936 px) : la source fournie ne permet pas plus haut */
+  aspect-ratio: 1; /* photo ronde (936 px) : la source fournie ne permet pas plus grand */
 }
 
-/* Contour du galet, décalé derrière la photo */
+/* Décor de la photo ronde (d'après la maquette de la cliente) : un disque rose
+   pâle derrière, un cercle fin décalé et un brin de feuillage */
+.hero__media::before {
+  content: "";
+  position: absolute;
+  left: -8%;
+  bottom: -6%;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--rose-pale);
+}
+
 .hero__outline {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  color: var(--blue);
+  color: var(--rose);
   overflow: visible;
-  transform: translate(18px, 16px) rotate(-4deg);
+  transform: translate(14px, -12px);
+}
+
+.hero__sprig {
+  position: absolute;
+  z-index: 2;
+  right: -7%;
+  bottom: -10%;
+  width: 30%;
+  overflow: visible;
+}
+
+.hero__sprig-stem {
+  fill: none;
+  stroke: var(--rose);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.hero__sprig-leaf--rose {
+  fill: var(--rose);
+}
+
+.hero__sprig-leaf--blue {
+  fill: var(--blue);
 }
 
 .hero__outline path {
@@ -420,6 +456,10 @@
   border-top: 1px solid var(--line);
 }
 
+.section + .closing {
+  padding-top: var(--section); /* séparé par son filet : garde son espace en haut */
+}
+
 .closing__inner {
   display: grid;
   gap: var(--space-m);
@@ -743,11 +783,9 @@
   margin-top: var(--space-l);
 }
 
-/* Avis sur la page du soin : lettre signée sur fond papier (voir « Avis : témoignages ») */
+/* Avis sur la page du soin : une seule lettre signée (voir « Avis : témoignages ») */
 .testimonials--letters.care-page__review { /* 2 classes : passe devant .testimonials--letters, défini plus bas */
   grid-template-columns: minmax(0, 46rem); /* un seul avis, dans la colonne de texte */
-  --letter-around: var(--paper);
-  --letter-fill: var(--rose);
   justify-content: start;
 }
 
@@ -850,7 +888,7 @@
   margin-top: var(--space-2xl);
   padding: clamp(24px, 4vw, 48px);
   border-radius: var(--radius-l);
-  background: var(--rose);
+  background: var(--rose-pale);
 }
 
 .gift-panel__title {
@@ -1032,11 +1070,11 @@
    tout reste visible).
    Le guillemet “ est à cheval sur le cadre : son fond reprend la couleur autour
    du cadre (--letter-around) au-dessus du filet et celle du cadre (--letter-fill)
-   en dessous, ce qui masque le filet derrière lui. Par défaut : section sable,
-   cadre papier ; sur fond papier, inverser les deux variables. */
+   en dessous, ce qui masque le filet derrière lui : fond blanc autour,
+   cadre rose pâle. */
 .testimonials--letters {
-  --letter-around: var(--rose);
-  --letter-fill: var(--paper);
+  --letter-around: var(--paper);
+  --letter-fill: var(--rose-pale);
   grid-template-columns: minmax(0, 46rem);
   justify-content: center;
   gap: var(--space-2xl) var(--space-xl);

@@ -18,8 +18,10 @@
   padding-block: var(--section);
 }
 
-.section--rose {
-  background: var(--rose);
+/* Fond blanc partout : un seul espace entre deux blocs qui se suivent */
+.hero + .section,
+.section + .section {
+  padding-top: 0;
 }
 
 /* En-tête de section : titre + court texte d'introduction */
@@ -331,7 +333,7 @@ html.has-menu-open {
 
   .main-nav__submenu .main-nav__link:hover,
   .main-nav__submenu .main-nav__link[aria-current='page'] {
-    background: var(--rose);
+    background: var(--rose-pale);
   }
 
   .main-nav__cta {
@@ -342,8 +344,9 @@ html.has-menu-open {
 /* --- Pied de page ------------------------------------------------------------ */
 .site-footer {
   padding-block: var(--space-2xl) var(--space-l);
-  background: var(--plum-deep);
-  color: var(--mist);
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
   font-size: var(--step--1);
 }
 
@@ -352,7 +355,7 @@ html.has-menu-open {
 }
 
 .site-footer a:hover {
-  color: var(--paper);
+  color: var(--plum);
   text-decoration: underline;
 }
 
@@ -368,16 +371,13 @@ html.has-menu-open {
   align-content: start;
 }
 
-/* Logo noir d'origine affiché en clair sur le fond sombre */
 .site-footer__logo img {
   width: 110px;
-  filter: invert(1) brightness(1.4);
-  opacity: 0.92;
 }
 
 .site-footer__title {
   margin-bottom: var(--space-s);
-  color: var(--paper);
+  color: var(--plum);
   font-size: var(--step-1);
 }
 
@@ -407,7 +407,7 @@ html.has-menu-open {
   gap: var(--space-s) var(--space-l);
   margin-top: var(--space-2xl);
   padding-top: var(--space-m);
-  border-top: 1px solid color-mix(in srgb, var(--mist) 25%, transparent);
+  border-top: 1px solid var(--line);
 }
 
 .site-footer__legal {

@@ -1,8 +1,8 @@
 /* ==========================================================================
    Variables du site Azurine — direction « éditorial doux »
-   Palette choisie par la cliente (12/10/2026) : fond blanc, prune grisé
-   pour les titres et les boutons, rose poudré pour quelques fonds de section,
-   bleu pastel par petites touches (rappel du papillon).
+   Palette choisie par la cliente (12/10/2026), d'après sa maquette : tout
+   sur fond blanc, prune grisé pour les titres et les boutons, rose poudré
+   en petites touches (encarts, formes), bleu pastel en rappel du papillon.
    Tailles de texte et espacements fluides (clamp) : ils s'ajustent seuls
    entre mobile et desktop. Point d'arrêt de mise en page unique :
    @media (min-width: 921px) (les variables CSS ne fonctionnent pas dans
@@ -13,15 +13,15 @@
 :root {
   /* --- Couleurs -------------------------------------------------------------- */
   --paper: #fff;             /* fond principal (blanc) */
-  --rose: #e5cdd2;           /* rose poudré : quelques fonds de section */
+  --rose: #e5cdd2;           /* rose poudré : décor (filets, formes, sélection) */
+  --rose-pale: #f7eef0;      /* fond des petits encarts : avis, précautions, bons cadeaux (texte secondaire 6.7:1) */
   --white: #fff;             /* champs de formulaire, panneaux */
   --line: #e8dde0;           /* filets et bordures */
 
   --ink: #2f2731;            /* texte principal (14.4:1 sur blanc, 9.6:1 sur rose) */
   --ink-soft: #5c4f5e;       /* texte secondaire (7.7:1 blanc, 5.1:1 rose) */
   --plum: #695568;           /* prune grisé : titres, liens, boutons (6.8:1 blanc, 4.5:1 rose ; texte blanc 6.8:1) */
-  --plum-deep: #4b3c4b;      /* survol des boutons, pied de page (texte blanc 10.3:1) */
-  --mist: #f3e8eb;           /* texte sur le pied de page prune (8.6:1) */
+  --plum-deep: #4b3c4b;      /* survol des boutons et des liens (texte blanc 10.3:1) */
   --blue: #b9cde0;           /* bleu pastel : décor seulement, jamais pour du texte (1.6:1) */
 
   /* --- Polices ----------------------------------------------------------------- */

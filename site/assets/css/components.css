@@ -117,7 +117,7 @@
   width: 100%;
   border-radius: var(--radius-l);
   object-fit: cover;
-  background: var(--rose);
+  background: var(--rose-pale);
 }
 
 .shape-egg {
@@ -248,11 +248,11 @@
 
 /* --- Encarts ------------------------------------------------------------------------ */
 
-/* Information importante (contre-indications…) : fond sable, pas de filet coloré */
+/* Information importante (contre-indications…) : fond rose pâle, pas de filet coloré */
 .callout {
   padding: var(--space-m);
   border-radius: var(--radius-m);
-  background: var(--rose);
+  background: var(--rose-pale);
   font-size: var(--step--1);
 }
 
