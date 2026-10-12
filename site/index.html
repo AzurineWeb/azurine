@@ -102,7 +102,11 @@
           <li class="main-nav__item"><a class="main-nav__link" href="avis.html">Avis</a></li>
         </ul>
         <a class="btn btn--primary btn--small main-nav__cta" href="prendre-rdv.html">Prendre RDV</a>
+        <a class="main-nav__phone" href="tel:+33662419403"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.5 3.5h2.6l1.6 4.2-2 1.3a11 11 0 0 0 6.3 6.3l1.3-2 4.2 1.6v2.6a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 4.5 5.6a2 2 0 0 1 2-2.1z"/></svg>06 62 41 94 03</a>
       </nav>
+
+      <!-- Bouton visible sur mobile seulement (sur ordinateur, celui du menu suffit) -->
+      <a class="btn btn--primary btn--small site-header__cta" href="prendre-rdv.html">Prendre RDV</a>
 
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
         <span class="menu-toggle__bar"></span>
@@ -129,16 +133,15 @@
           <svg class="hero__outline" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><path pathLength="1" d="M100 1a99 99 0 1 1 0 198a99 99 0 1 1 0-198Z"/></svg>
           <img class="hero__image media shape-circle" src="assets/images/accueil-papillon-bleu.jpg" alt="Papillon bleu posé sur un brin d'herbe" width="936" height="936" fetchpriority="high">
           <!-- Brin de feuillage décoratif (rose et bleu, en rappel du papillon) -->
-          <svg class="hero__sprig" viewBox="0 0 100 140" aria-hidden="true" focusable="false">
-            <defs><path id="feuille" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z"/></defs>
-            <path class="hero__sprig-stem" d="M18 138C34 106 54 70 82 8"/>
-            <use class="hero__sprig-leaf--rose" href="#feuille" transform="translate(26 122) rotate(-155)"/>
-            <use class="hero__sprig-leaf--blue" href="#feuille" transform="translate(33 108) rotate(-25)"/>
-            <use class="hero__sprig-leaf--blue" href="#feuille" transform="translate(42 90) rotate(-150)"/>
-            <use class="hero__sprig-leaf--rose" href="#feuille" transform="translate(51 72) rotate(-20)"/>
-            <use class="hero__sprig-leaf--rose" href="#feuille" transform="translate(62 50) rotate(-145)"/>
-            <use class="hero__sprig-leaf--blue" href="#feuille" transform="translate(73 28) rotate(-15)"/>
-            <use class="hero__sprig-leaf--rose" href="#feuille" transform="translate(81 10) rotate(-70) scale(0.7)"/>
+          <svg class="sprig hero__sprig" viewBox="0 0 100 140" aria-hidden="true" focusable="false">
+            <path class="sprig__stem" d="M18 138C34 106 54 70 82 8"/>
+            <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(26 122) rotate(-155)"/>
+            <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(33 108) rotate(-25)"/>
+            <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(42 90) rotate(-150)"/>
+            <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(51 72) rotate(-20)"/>
+            <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(62 50) rotate(-145)"/>
+            <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(73 28) rotate(-15)"/>
+            <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(81 10) rotate(-70) scale(0.7)"/>
           </svg>
         </div>
       </div>
@@ -260,6 +263,26 @@
 
     <!-- Prise de rendez-vous -->
     <section class="section closing" aria-labelledby="closing-title">
+      <svg class="sprig sprig--flip closing__sprig closing__sprig--left" viewBox="0 0 100 140" aria-hidden="true" focusable="false">
+        <path class="sprig__stem" d="M18 138C34 106 54 70 82 8"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(26 122) rotate(-155)"/>
+        <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(33 108) rotate(-25)"/>
+        <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(42 90) rotate(-150)"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(51 72) rotate(-20)"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(62 50) rotate(-145)"/>
+        <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(73 28) rotate(-15)"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(81 10) rotate(-70) scale(0.7)"/>
+      </svg>
+      <svg class="sprig closing__sprig closing__sprig--right" viewBox="0 0 100 140" aria-hidden="true" focusable="false">
+        <path class="sprig__stem" d="M18 138C34 106 54 70 82 8"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(26 122) rotate(-155)"/>
+        <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(33 108) rotate(-25)"/>
+        <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(42 90) rotate(-150)"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(51 72) rotate(-20)"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(62 50) rotate(-145)"/>
+        <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(73 28) rotate(-15)"/>
+        <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(81 10) rotate(-70) scale(0.7)"/>
+      </svg>
       <div class="container closing__inner">
         <h2 class="closing__title" id="closing-title">Prendre rendez-vous</h2>
         <p class="closing__text">En ligne à tout moment, ou par téléphone au <a href="tel:+33662419403">06 62 41 94 03</a>.<br>Accueil uniquement sur rendez-vous.</p>
@@ -320,6 +343,16 @@
       </ul>
       <p>© 2026 Azurine</p>
     </div>
+    <svg class="sprig site-footer__sprig" viewBox="0 0 100 140" aria-hidden="true" focusable="false">
+      <path class="sprig__stem" d="M18 138C34 106 54 70 82 8"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(26 122) rotate(-155)"/>
+      <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(33 108) rotate(-25)"/>
+      <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(42 90) rotate(-150)"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(51 72) rotate(-20)"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(62 50) rotate(-145)"/>
+      <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(73 28) rotate(-15)"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(81 10) rotate(-70) scale(0.7)"/>
+    </svg>
   </footer>
 </body>
 </html>

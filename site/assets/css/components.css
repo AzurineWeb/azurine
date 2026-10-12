@@ -246,6 +246,10 @@
   font-variant-numeric: lining-nums;
 }
 
+.facts dd a {
+  color: var(--plum);
+}
+
 /* --- Encarts ------------------------------------------------------------------------ */
 
 /* Information importante (contre-indications…) : fond rose pâle, pas de filet coloré */
@@ -293,6 +297,88 @@
   flex-shrink: 0;
 }
 
+/* --- Brin de feuillage décoratif (d'après la maquette de la cliente) ----------------
+   <svg class="sprig …" viewBox="0 0 100 140" aria-hidden="true">…</svg>
+   Position donnée par la classe du bloc (hero__sprig, closing__sprig…).
+   .sprig--flip : même brin, retourné (côté gauche). */
+.sprig {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sprig--flip {
+  transform: scaleX(-1);
+}
+
+.sprig__stem {
+  fill: none;
+  stroke: var(--rose);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.sprig__leaf--rose {
+  fill: var(--rose);
+}
+
+.sprig__leaf--blue {
+  fill: var(--blue);
+}
+
+/* --- Bloc final « Prendre rendez-vous » --------------------------------------------
+   Fin de l'accueil, des pages de soins et de Qui suis-je : seule bande colorée
+   du site (rose pâle), comme la bande de fin de la maquette. */
+.closing {
+  position: relative;
+  overflow: hidden;
+  background: var(--rose-pale);
+}
+
+.section + .closing {
+  padding-top: var(--section); /* bande colorée : garde son espace en haut */
+}
+
+.closing__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-m);
+  justify-items: center;
+  text-align: center;
+}
+
+.closing__title {
+  font-size: var(--step-4);
+}
+
+.closing__text {
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+}
+
+.closing__text a {
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.closing .actions {
+  justify-content: center;
+}
+
+.closing__sprig {
+  bottom: -12px;
+  width: clamp(56px, 9vw, 120px);
+}
+
+.closing__sprig--left {
+  left: clamp(4px, 3vw, 64px);
+}
+
+.closing__sprig--right {
+  right: clamp(4px, 3vw, 64px);
+}
+
 /* --- Formulaire de contact --------------------------------------------------------- */
 .contact-form {
   display: grid;
@@ -312,6 +398,7 @@
 
 .contact-form__field {
   display: grid;
+  align-content: start; /* un message d'erreur ne décale pas le champ voisin */
   gap: var(--space-2xs);
 }
 
@@ -330,7 +417,7 @@
   width: 100%;
   min-height: 52px;
   padding: 0.7em 1em;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius-s);
   background: var(--paper);
   font-size: 1rem;
@@ -338,7 +425,7 @@
 }
 
 .contact-form__input:hover {
-  border-color: var(--ink-soft);
+  border-color: var(--ink);
 }
 
 .contact-form__input:focus {
@@ -348,9 +435,21 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--plum) 22%, transparent);
 }
 
-/* Erreur affichée seulement après une saisie (pas dès l'arrivée sur la page) */
+/* Erreur affichée seulement après une saisie (pas dès l'arrivée sur la page) :
+   contour rouge prune et message sous le champ */
 .contact-form__input:user-invalid {
-  border-color: var(--plum);
+  border-color: var(--error);
+  box-shadow: inset 0 0 0 1px var(--error);
+}
+
+.contact-form__error {
+  display: none;
+  color: var(--error);
+  font-size: var(--step--1);
+}
+
+.contact-form__input:user-invalid + .contact-form__error {
+  display: block;
 }
 
 textarea.contact-form__input {

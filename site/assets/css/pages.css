@@ -26,7 +26,7 @@
 
 .hero__inner {
   display: grid;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -73,8 +73,9 @@
 .hero__media {
   position: relative;
   justify-self: center;
-  /* - 24px : place pour le contour, décalé de 18px vers la droite */
-  width: min(100% - 24px, 460px);
+  order: -1; /* mobile : la photo avant le titre, petite */
+  /* - 24px : place pour le cercle fin, décalé vers la droite */
+  width: min(100% - 24px, 240px);
 }
 
 .hero__image {
@@ -88,9 +89,9 @@
 .hero__media::before {
   content: "";
   position: absolute;
-  left: -8%;
-  bottom: -6%;
-  width: 60%;
+  left: -14%;
+  bottom: -10%;
+  width: 82%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--rose-pale);
@@ -107,27 +108,10 @@
 }
 
 .hero__sprig {
-  position: absolute;
   z-index: 2;
   right: -7%;
   bottom: -10%;
   width: 30%;
-  overflow: visible;
-}
-
-.hero__sprig-stem {
-  fill: none;
-  stroke: var(--rose);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-}
-
-.hero__sprig-leaf--rose {
-  fill: var(--rose);
-}
-
-.hero__sprig-leaf--blue {
-  fill: var(--blue);
 }
 
 .hero__outline path {
@@ -175,11 +159,17 @@
   }
 
   .hero__inner {
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: var(--space-2xl);
+  }
+
+  .hero__media {
+    order: 0;
+    width: min(100% - 24px, 460px);
   }
 
   .hero__title {
-    font-size: clamp(2.75rem, 1.2rem + 3.4vw, 4.25rem);
+    font-size: clamp(2.75rem, 1.2rem + 3vw, 3.75rem);
   }
 }
 
@@ -229,6 +219,10 @@
 }
 
 /* --- Mon activité (présentation courte) ------------------------------------------ */
+.intro {
+  overflow-x: clip; /* le disque bleu du portrait dépasse sur mobile */
+}
+
 .intro__inner {
   display: grid;
   gap: var(--space-2xl);
@@ -236,8 +230,25 @@
 }
 
 .intro__media {
+  position: relative;
   justify-self: center;
   width: min(100%, 420px);
+}
+
+/* Disque bleu très pâle derrière le portrait (rappel du papillon) */
+.intro__media::before {
+  content: "";
+  position: absolute;
+  top: -6%;
+  right: -10%;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--blue-pale);
+}
+
+.intro__portrait {
+  position: relative;
 }
 
 .intro__portrait {
@@ -452,40 +463,6 @@
 }
 
 /* --- Appel final à prendre rendez-vous ---------------------------------------------- */
-.closing {
-  border-top: 1px solid var(--line);
-}
-
-.section + .closing {
-  padding-top: var(--section); /* séparé par son filet : garde son espace en haut */
-}
-
-.closing__inner {
-  display: grid;
-  gap: var(--space-m);
-  justify-items: center;
-  text-align: center;
-}
-
-.closing__title {
-  font-size: var(--step-4);
-}
-
-.closing__text {
-  color: var(--ink-soft);
-  font-size: var(--step-1);
-}
-
-.closing__text a {
-  color: var(--ink);
-  white-space: nowrap;
-}
-
-.closing .actions {
-  justify-content: center;
-}
-
-
 /* ==========================================================================
    2. Qui suis-je ?
    ========================================================================== */
