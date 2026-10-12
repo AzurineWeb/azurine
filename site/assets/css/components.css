@@ -4,11 +4,11 @@
 
 /* --- Boutons -------------------------------------------------------------------
    <a class="btn btn--primary">…</a>
-   Variantes : --primary (mauve), --outline (filet encre), --light (sur fond sombre).
+   Variantes : --primary (prune), --outline (filet encre), --light (sur fond sombre).
    Taille : --small (en-tête). */
 .btn {
-  --btn-bg: var(--mauve);
-  --btn-bg-hover: var(--mauve-hover);
+  --btn-bg: var(--plum);
+  --btn-bg-hover: var(--plum-deep);
   --btn-color: var(--white);
   --btn-border: transparent;
 
@@ -37,7 +37,7 @@
 .btn:hover {
   background: var(--btn-bg-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -14px rgba(34, 56, 58, 0.6);
+  box-shadow: 0 10px 20px -14px rgba(75, 60, 75, 0.6);
 }
 
 .btn:active {
@@ -54,8 +54,8 @@
 }
 
 .btn--primary {
-  --btn-bg: var(--mauve);
-  --btn-bg-hover: var(--mauve-hover);
+  --btn-bg: var(--plum);
+  --btn-bg-hover: var(--plum-deep);
 }
 
 .btn--outline {
@@ -89,14 +89,14 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);
-  color: var(--teal);
+  color: var(--plum);
   font-weight: 600;
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
 }
 
 .link-arrow:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
   text-decoration-color: currentColor;
 }
 
@@ -117,7 +117,7 @@
   width: 100%;
   border-radius: var(--radius-l);
   object-fit: cover;
-  background: var(--sand);
+  background: var(--rose);
 }
 
 .shape-egg {
@@ -196,22 +196,23 @@
   margin-top: var(--space-xs);
 }
 
-.prose ul {
+.prose ul,
+.prose ol {
   display: grid;
   gap: var(--space-2xs);
   padding-left: 1.2em;
 }
 
 .prose li::marker {
-  color: var(--mauve);
+  color: var(--plum);
 }
 
 .prose a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 .prose a:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 .prose__lead {
@@ -251,7 +252,7 @@
 .callout {
   padding: var(--space-m);
   border-radius: var(--radius-m);
-  background: var(--sand);
+  background: var(--rose);
   font-size: var(--step--1);
 }
 
@@ -341,15 +342,15 @@
 }
 
 .contact-form__input:focus {
-  border-color: var(--teal);
+  border-color: var(--plum);
   background: var(--white);
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--plum) 22%, transparent);
 }
 
 /* Erreur affichée seulement après une saisie (pas dès l'arrivée sur la page) */
 .contact-form__input:user-invalid {
-  border-color: var(--mauve);
+  border-color: var(--plum);
 }
 
 textarea.contact-form__input {
@@ -363,7 +364,7 @@ textarea.contact-form__input {
 }
 
 .contact-form__note a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 .contact-form .btn {

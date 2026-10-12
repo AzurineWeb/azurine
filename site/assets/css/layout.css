@@ -18,8 +18,8 @@
   padding-block: var(--section);
 }
 
-.section--sand {
-  background: var(--sand);
+.section--rose {
+  background: var(--rose);
 }
 
 /* En-tête de section : titre + court texte d'introduction */
@@ -53,7 +53,7 @@
 /* Ajouté par main.js dès que la page défile */
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
-  box-shadow: 0 8px 24px -20px rgba(34, 56, 58, 0.45);
+  box-shadow: 0 8px 24px -20px rgba(75, 60, 75, 0.45);
 }
 
 .site-header__inner {
@@ -167,7 +167,7 @@ html.has-menu-open {
 
 .main-nav__link[aria-current='page'],
 .main-nav__item--has-submenu.is-current > .main-nav__toggle {
-  color: var(--mauve);
+  color: var(--plum);
 }
 
 .main-nav__chevron {
@@ -277,7 +277,7 @@ html.has-menu-open {
 
   .main-nav__link:hover,
   .main-nav__toggle:hover {
-    color: var(--teal);
+    color: var(--plum);
   }
 
   /* Sous-menu « Soins proposés » : survol, focus clavier ou clic (main.js) */
@@ -331,7 +331,7 @@ html.has-menu-open {
 
   .main-nav__submenu .main-nav__link:hover,
   .main-nav__submenu .main-nav__link[aria-current='page'] {
-    background: var(--sand);
+    background: var(--rose);
   }
 
   .main-nav__cta {
@@ -342,7 +342,7 @@ html.has-menu-open {
 /* --- Pied de page ------------------------------------------------------------ */
 .site-footer {
   padding-block: var(--space-2xl) var(--space-l);
-  background: var(--teal-deep);
+  background: var(--plum-deep);
   color: var(--mist);
   font-size: var(--step--1);
 }
@@ -407,7 +407,7 @@ html.has-menu-open {
   gap: var(--space-s) var(--space-l);
   margin-top: var(--space-2xl);
   padding-top: var(--space-m);
-  border-top: 1px solid rgba(207, 224, 221, 0.25);
+  border-top: 1px solid color-mix(in srgb, var(--mist) 25%, transparent);
 }
 
 .site-footer__legal {

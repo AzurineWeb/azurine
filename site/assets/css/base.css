@@ -46,7 +46,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-padding-top: calc(var(--header-height) + var(--space-m));
-  scrollbar-color: var(--teal-brand) var(--sand);
+  scrollbar-color: var(--plum) var(--rose);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -62,7 +62,7 @@ body {
   font-family: var(--font-text);
   font-size: var(--step-0);
   line-height: var(--lh-body);
-  caret-color: var(--mauve);
+  caret-color: var(--plum);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -72,7 +72,7 @@ h2,
 h3,
 h4 {
   margin: 0;
-  color: var(--teal);
+  color: var(--plum);
   font-family: var(--font-display);
   font-weight: 400;
   line-height: var(--lh-tight);
@@ -131,12 +131,12 @@ textarea {
 }
 
 ::selection {
-  background: var(--mist);
+  background: var(--rose);
   color: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--mauve);
+  outline: 2px solid var(--plum);
   outline-offset: 3px;
   border-radius: 2px;
 }

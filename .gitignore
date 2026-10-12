@@ -11,3 +11,6 @@ Thumbs.db
 
 # Photos originales (pleine définition, données GPS) : non versionnées
 sources/photos-originales/
+
+# Retours de la cliente (PDF, photos pleine définition) : fichiers de travail, non versionnés
+Modifications/

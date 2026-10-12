@@ -41,7 +41,7 @@
 }
 
 .hero__title em {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 /* Retours à la ligne choisis sur desktop ; sur mobile, le texte coule librement */
@@ -80,7 +80,7 @@
 .hero__image {
   position: relative;
   z-index: 1;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1; /* photo du papillon carrée (936 px) : la source fournie ne permet pas plus haut */
 }
 
 /* Contour du galet, décalé derrière la photo */
@@ -89,7 +89,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  color: var(--teal-brand);
+  color: var(--blue);
   overflow: visible;
   transform: translate(18px, 16px) rotate(-4deg);
 }
@@ -200,23 +200,13 @@
 }
 
 .intro__media {
-  position: relative;
   justify-self: center;
   width: min(100%, 420px);
-  margin-bottom: var(--space-xl);
 }
 
 .intro__portrait {
   aspect-ratio: 4 / 5;
-}
-
-/* Petit médaillon (papillon bleu) posé sur le coin du portrait */
-.intro__badge {
-  position: absolute;
-  left: -6%;
-  bottom: -10%;
-  width: 38%;
-  border: 6px solid var(--paper);
+  object-position: 50% 0; /* garde le haut de la tête */
 }
 
 .intro__text {
@@ -238,10 +228,6 @@
   .intro__inner {
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
     gap: clamp(48px, 7vw, 120px);
-  }
-
-  .intro__media {
-    margin-bottom: 0;
   }
 }
 
@@ -320,7 +306,7 @@
 }
 
 .care-item:hover .link-arrow {
-  color: var(--mauve);
+  color: var(--plum);
 }
 
 .care-item:hover .link-arrow__icon {
@@ -350,7 +336,7 @@
 }
 
 .gift__highlight {
-  color: var(--teal);
+  color: var(--plum);
   font-family: var(--font-display);
   font-size: var(--step-2);
   font-style: italic;
@@ -395,7 +381,7 @@
 }
 
 .faq__question:hover {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 /* « + » dessiné en CSS, qui pivote en « × » à l'ouverture */
@@ -407,7 +393,7 @@
   right: 4px;
   width: 16px;
   height: 1.5px;
-  background: var(--mauve);
+  background: var(--plum);
   transition: transform var(--dur) var(--ease-out);
 }
 
@@ -477,6 +463,7 @@
   justify-self: center;
   width: min(100%, 420px);
   aspect-ratio: 768 / 1000;
+  object-position: 50% 0; /* garde le haut de la tête */
 }
 
 .about__text {
@@ -502,7 +489,7 @@
 }
 
 .about__text a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 .about__photos {
@@ -571,11 +558,11 @@
 }
 
 .contact__details a:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 .contact__details .icon {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 @media (min-width: 921px) {
@@ -685,14 +672,14 @@
 }
 
 .map__consent a {
-  color: var(--teal);
+  color: var(--plum);
   font-size: var(--step--1);
 }
 
 .map__icon {
   width: 32px;
   height: 32px;
-  color: var(--teal-brand);
+  color: var(--plum);
 }
 
 @media (min-width: 921px) {
@@ -760,7 +747,7 @@
 .testimonials--letters.care-page__review { /* 2 classes : passe devant .testimonials--letters, défini plus bas */
   grid-template-columns: minmax(0, 46rem); /* un seul avis, dans la colonne de texte */
   --letter-around: var(--paper);
-  --letter-fill: var(--sand);
+  --letter-fill: var(--rose);
   justify-content: start;
 }
 
@@ -818,7 +805,7 @@
 }
 
 .price-group__title a:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 .price-group__duration {
@@ -863,7 +850,7 @@
   margin-top: var(--space-2xl);
   padding: clamp(24px, 4vw, 48px);
   border-radius: var(--radius-l);
-  background: var(--sand);
+  background: var(--rose);
 }
 
 .gift-panel__title {
@@ -957,7 +944,7 @@
 }
 
 .booking__phone:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 .booking__call {
@@ -1037,7 +1024,7 @@
 }
 
 .testimonial__author a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 /* Témoignages écrits à la main (avis.html, massage-sonore.html) : lettres signées,
@@ -1048,7 +1035,7 @@
    en dessous, ce qui masque le filet derrière lui. Par défaut : section sable,
    cadre papier ; sur fond papier, inverser les deux variables. */
 .testimonials--letters {
-  --letter-around: var(--sand);
+  --letter-around: var(--rose);
   --letter-fill: var(--paper);
   grid-template-columns: minmax(0, 46rem);
   justify-content: center;
@@ -1074,7 +1061,7 @@
   height: 0.7em;
   padding: 0 var(--space-2xs);
   background: linear-gradient(var(--letter-around) 0.37em, var(--letter-fill) 0.37em); /* 0.37em = hauteur du filet (top) */
-  color: var(--mauve);
+  color: var(--blue);
   font-family: var(--font-display);
   font-size: 5rem;
   line-height: 1;
@@ -1089,7 +1076,7 @@
 .testimonials--letters .testimonial__author {
   margin-top: auto;
   padding-top: var(--space-m);
-  color: var(--teal);
+  color: var(--plum);
   font-family: var(--font-display);
   font-size: var(--step-1);
   font-style: italic;
@@ -1177,7 +1164,7 @@
   display: flex;
   gap: 2px;
   margin-bottom: var(--space-xs);
-  color: var(--mauve);
+  color: var(--plum);
 }
 
 .google-reviews__stars svg {
@@ -1192,7 +1179,7 @@
 }
 
 .google-reviews__source a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 
