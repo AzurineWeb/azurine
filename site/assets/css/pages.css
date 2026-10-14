@@ -26,7 +26,7 @@
 
 .hero__inner {
   display: grid;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .hero__title em {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 /* Retours à la ligne choisis sur desktop ; sur mobile, le texte coule librement */
@@ -73,25 +73,45 @@
 .hero__media {
   position: relative;
   justify-self: center;
-  /* - 24px : place pour le contour, décalé de 18px vers la droite */
-  width: min(100% - 24px, 460px);
+  order: -1; /* mobile : la photo avant le titre, petite */
+  /* - 24px : place pour le cercle fin, décalé vers la droite */
+  width: min(100% - 24px, 240px);
 }
 
 .hero__image {
   position: relative;
   z-index: 1;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1; /* photo ronde (936 px) : la source fournie ne permet pas plus grand */
 }
 
-/* Contour du galet, décalé derrière la photo */
+/* Décor de la photo ronde (d'après la maquette de la cliente) : un disque rose
+   pâle derrière, un cercle fin décalé et un brin de feuillage */
+.hero__media::before {
+  content: "";
+  position: absolute;
+  left: -14%;
+  bottom: -10%;
+  width: 82%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--rose-pale);
+}
+
 .hero__outline {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  color: var(--teal-brand);
+  color: var(--rose);
   overflow: visible;
-  transform: translate(18px, 16px) rotate(-4deg);
+  transform: translate(14px, -12px);
+}
+
+.hero__sprig {
+  z-index: 2;
+  right: -7%;
+  bottom: -10%;
+  width: 30%;
 }
 
 .hero__outline path {
@@ -139,11 +159,17 @@
   }
 
   .hero__inner {
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: var(--space-2xl);
+  }
+
+  .hero__media {
+    order: 0;
+    width: min(100% - 24px, 460px);
   }
 
   .hero__title {
-    font-size: clamp(2.75rem, 1.2rem + 3.4vw, 4.25rem);
+    font-size: clamp(2.75rem, 1.2rem + 3vw, 3.75rem);
   }
 }
 
@@ -193,6 +219,10 @@
 }
 
 /* --- Mon activité (présentation courte) ------------------------------------------ */
+.intro {
+  overflow-x: clip; /* le disque bleu du portrait dépasse sur mobile */
+}
+
 .intro__inner {
   display: grid;
   gap: var(--space-2xl);
@@ -203,20 +233,27 @@
   position: relative;
   justify-self: center;
   width: min(100%, 420px);
-  margin-bottom: var(--space-xl);
+}
+
+/* Disque bleu très pâle derrière le portrait (rappel du papillon) */
+.intro__media::before {
+  content: "";
+  position: absolute;
+  top: -6%;
+  right: -10%;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--blue-pale);
+}
+
+.intro__portrait {
+  position: relative;
 }
 
 .intro__portrait {
   aspect-ratio: 4 / 5;
-}
-
-/* Petit médaillon (papillon bleu) posé sur le coin du portrait */
-.intro__badge {
-  position: absolute;
-  left: -6%;
-  bottom: -10%;
-  width: 38%;
-  border: 6px solid var(--paper);
+  object-position: 50% 0; /* garde le haut de la tête */
 }
 
 .intro__text {
@@ -238,10 +275,6 @@
   .intro__inner {
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
     gap: clamp(48px, 7vw, 120px);
-  }
-
-  .intro__media {
-    margin-bottom: 0;
   }
 }
 
@@ -320,7 +353,7 @@
 }
 
 .care-item:hover .link-arrow {
-  color: var(--mauve);
+  color: var(--plum);
 }
 
 .care-item:hover .link-arrow__icon {
@@ -350,7 +383,7 @@
 }
 
 .gift__highlight {
-  color: var(--teal);
+  color: var(--plum);
   font-family: var(--font-display);
   font-size: var(--step-2);
   font-style: italic;
@@ -395,7 +428,7 @@
 }
 
 .faq__question:hover {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 /* « + » dessiné en CSS, qui pivote en « × » à l'ouverture */
@@ -407,7 +440,7 @@
   right: 4px;
   width: 16px;
   height: 1.5px;
-  background: var(--mauve);
+  background: var(--plum);
   transition: transform var(--dur) var(--ease-out);
 }
 
@@ -430,36 +463,6 @@
 }
 
 /* --- Appel final à prendre rendez-vous ---------------------------------------------- */
-.closing {
-  border-top: 1px solid var(--line);
-}
-
-.closing__inner {
-  display: grid;
-  gap: var(--space-m);
-  justify-items: center;
-  text-align: center;
-}
-
-.closing__title {
-  font-size: var(--step-4);
-}
-
-.closing__text {
-  color: var(--ink-soft);
-  font-size: var(--step-1);
-}
-
-.closing__text a {
-  color: var(--ink);
-  white-space: nowrap;
-}
-
-.closing .actions {
-  justify-content: center;
-}
-
-
 /* ==========================================================================
    2. Qui suis-je ?
    ========================================================================== */
@@ -477,6 +480,7 @@
   justify-self: center;
   width: min(100%, 420px);
   aspect-ratio: 768 / 1000;
+  object-position: 50% 0; /* garde le haut de la tête */
 }
 
 .about__text {
@@ -502,7 +506,7 @@
 }
 
 .about__text a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 .about__photos {
@@ -571,11 +575,11 @@
 }
 
 .contact__details a:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 .contact__details .icon {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 @media (min-width: 921px) {
@@ -685,14 +689,14 @@
 }
 
 .map__consent a {
-  color: var(--teal);
+  color: var(--plum);
   font-size: var(--step--1);
 }
 
 .map__icon {
   width: 32px;
   height: 32px;
-  color: var(--teal-brand);
+  color: var(--plum);
 }
 
 @media (min-width: 921px) {
@@ -756,11 +760,9 @@
   margin-top: var(--space-l);
 }
 
-/* Avis sur la page du soin : lettre signée sur fond papier (voir « Avis : témoignages ») */
+/* Avis sur la page du soin : une seule lettre signée (voir « Avis : témoignages ») */
 .testimonials--letters.care-page__review { /* 2 classes : passe devant .testimonials--letters, défini plus bas */
   grid-template-columns: minmax(0, 46rem); /* un seul avis, dans la colonne de texte */
-  --letter-around: var(--paper);
-  --letter-fill: var(--sand);
   justify-content: start;
 }
 
@@ -818,7 +820,7 @@
 }
 
 .price-group__title a:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 .price-group__duration {
@@ -863,7 +865,7 @@
   margin-top: var(--space-2xl);
   padding: clamp(24px, 4vw, 48px);
   border-radius: var(--radius-l);
-  background: var(--sand);
+  background: var(--rose-pale);
 }
 
 .gift-panel__title {
@@ -957,7 +959,7 @@
 }
 
 .booking__phone:hover {
-  color: var(--mauve);
+  color: var(--plum-deep);
 }
 
 .booking__call {
@@ -1037,7 +1039,7 @@
 }
 
 .testimonial__author a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 /* Témoignages écrits à la main (avis.html, massage-sonore.html) : lettres signées,
@@ -1045,11 +1047,11 @@
    tout reste visible).
    Le guillemet “ est à cheval sur le cadre : son fond reprend la couleur autour
    du cadre (--letter-around) au-dessus du filet et celle du cadre (--letter-fill)
-   en dessous, ce qui masque le filet derrière lui. Par défaut : section sable,
-   cadre papier ; sur fond papier, inverser les deux variables. */
+   en dessous, ce qui masque le filet derrière lui : fond blanc autour,
+   cadre rose pâle. */
 .testimonials--letters {
-  --letter-around: var(--sand);
-  --letter-fill: var(--paper);
+  --letter-around: var(--paper);
+  --letter-fill: var(--rose-pale);
   grid-template-columns: minmax(0, 46rem);
   justify-content: center;
   gap: var(--space-2xl) var(--space-xl);
@@ -1074,7 +1076,7 @@
   height: 0.7em;
   padding: 0 var(--space-2xs);
   background: linear-gradient(var(--letter-around) 0.37em, var(--letter-fill) 0.37em); /* 0.37em = hauteur du filet (top) */
-  color: var(--mauve);
+  color: var(--blue);
   font-family: var(--font-display);
   font-size: 5rem;
   line-height: 1;
@@ -1089,7 +1091,7 @@
 .testimonials--letters .testimonial__author {
   margin-top: auto;
   padding-top: var(--space-m);
-  color: var(--teal);
+  color: var(--plum);
   font-family: var(--font-display);
   font-size: var(--step-1);
   font-style: italic;
@@ -1177,7 +1179,7 @@
   display: flex;
   gap: 2px;
   margin-bottom: var(--space-xs);
-  color: var(--mauve);
+  color: var(--plum);
 }
 
 .google-reviews__stars svg {
@@ -1192,7 +1194,7 @@
 }
 
 .google-reviews__source a {
-  color: var(--teal);
+  color: var(--plum);
 }
 
 

@@ -111,8 +111,8 @@ Pour un développeur : `git revert <commit>` annule proprement une publication.
   Seule différence : `aria-current="page"` sur le lien de la page affichée.
 - `404.html` utilise des chemins absolus (`/assets/…`) car Netlify l'affiche à n'importe
   quelle adresse.
-- **Vocabulaire du bien-être** : « cabinet », « séance », « accompagner » ; aucune maladie
-  ni promesse de résultat. Avertissement santé sur l'accueil et les 3 pages de soins.
+- **Vocabulaire du bien-être** : « cabinet », « séance », « accompagner ». Avertissement santé
+  (`health-note`) sur l'accueil et les 3 pages de soins, avec un texte propre à chaque page.
 - **Services externes** : Cal.com (simple lien), Google Maps (chargé au clic), Instagram,
   Netlify Forms. Tout nouveau service doit être ajouté à `EXTERNAL-ASSETS.txt` et à la politique
   de confidentialité.

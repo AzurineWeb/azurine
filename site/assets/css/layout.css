@@ -18,8 +18,10 @@
   padding-block: var(--section);
 }
 
-.section--sand {
-  background: var(--sand);
+/* Fond blanc partout : un seul espace entre deux blocs qui se suivent */
+.hero + .section,
+.section + .section {
+  padding-top: 0;
 }
 
 /* En-tête de section : titre + court texte d'introduction */
@@ -53,7 +55,7 @@
 /* Ajouté par main.js dès que la page défile */
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
-  box-shadow: 0 8px 24px -20px rgba(34, 56, 58, 0.45);
+  box-shadow: 0 8px 24px -20px rgba(75, 60, 75, 0.45);
 }
 
 .site-header__inner {
@@ -70,6 +72,21 @@
 
 .site-header__logo img {
   width: 92px;
+}
+
+/* Bouton « Prendre RDV » de l'en-tête mobile (celui du menu est caché tant que le menu est fermé) */
+.site-header__cta {
+  margin-left: auto;
+  margin-right: calc(var(--space-2xs) - var(--space-m)); /* rapproche le burger */
+  padding-inline: 0.85em;
+  white-space: nowrap;
+}
+
+/* Très petits écrans (320 px) : logo un peu plus petit pour laisser la place au bouton */
+@media (max-width: 359px) {
+  .site-header__logo img {
+    width: 80px;
+  }
 }
 
 /* Bouton « burger » (mobile uniquement) */
@@ -167,7 +184,7 @@ html.has-menu-open {
 
 .main-nav__link[aria-current='page'],
 .main-nav__item--has-submenu.is-current > .main-nav__toggle {
-  color: var(--mauve);
+  color: var(--plum);
 }
 
 .main-nav__chevron {
@@ -200,13 +217,42 @@ html.has-menu-open {
   align-self: flex-start;
 }
 
+/* Sur mobile, le bouton de l'en-tête reste visible : pas de doublon dans le menu
+   (2 classes : passe devant .btn, défini dans components.css chargé après) */
+.main-nav .main-nav__cta {
+  display: none;
+}
+
+/* Téléphone dans le menu mobile */
+.main-nav__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: 44px;
+  color: var(--ink);
+  font-size: var(--step-1);
+  text-decoration: none;
+}
+
+.main-nav__phone svg {
+  width: 20px;
+  height: 20px;
+  color: var(--plum);
+}
+
 /* --- Menu principal : version desktop -------------------------------------- */
 @media (min-width: 921px) {
   .site-header__logo img {
     width: 112px;
   }
 
-  .menu-toggle {
+  .main-nav .main-nav__cta {
+    display: inline-flex;
+  }
+
+  .menu-toggle,
+  .site-header .site-header__cta, /* 2 classes : passe devant .btn (components.css, chargé après) */
+  .main-nav__phone {
     display: none;
   }
 
@@ -277,7 +323,7 @@ html.has-menu-open {
 
   .main-nav__link:hover,
   .main-nav__toggle:hover {
-    color: var(--teal);
+    color: var(--plum);
   }
 
   /* Sous-menu « Soins proposés » : survol, focus clavier ou clic (main.js) */
@@ -331,7 +377,7 @@ html.has-menu-open {
 
   .main-nav__submenu .main-nav__link:hover,
   .main-nav__submenu .main-nav__link[aria-current='page'] {
-    background: var(--sand);
+    background: var(--rose-pale);
   }
 
   .main-nav__cta {
@@ -341,9 +387,12 @@ html.has-menu-open {
 
 /* --- Pied de page ------------------------------------------------------------ */
 .site-footer {
+  position: relative;
+  overflow: hidden;
   padding-block: var(--space-2xl) var(--space-l);
-  background: var(--teal-deep);
-  color: var(--mist);
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
   font-size: var(--step--1);
 }
 
@@ -352,7 +401,7 @@ html.has-menu-open {
 }
 
 .site-footer a:hover {
-  color: var(--paper);
+  color: var(--plum);
   text-decoration: underline;
 }
 
@@ -368,16 +417,13 @@ html.has-menu-open {
   align-content: start;
 }
 
-/* Logo noir d'origine affiché en clair sur le fond sombre */
 .site-footer__logo img {
   width: 110px;
-  filter: invert(1) brightness(1.4);
-  opacity: 0.92;
 }
 
 .site-footer__title {
   margin-bottom: var(--space-s);
-  color: var(--paper);
+  color: var(--plum);
   font-size: var(--step-1);
 }
 
@@ -400,6 +446,21 @@ html.has-menu-open {
   flex-shrink: 0;
 }
 
+/* Petit brin de feuillage dans le coin, comme sur la maquette : seulement sur
+   grand écran, dans la marge à droite du contenu (ne recouvre pas le texte) */
+.site-footer__sprig {
+  display: none;
+  right: 16px;
+  bottom: -14px;
+  width: 54px;
+}
+
+@media (min-width: 1280px) {
+  .site-footer__sprig {
+    display: block;
+  }
+}
+
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
@@ -407,7 +468,7 @@ html.has-menu-open {
   gap: var(--space-s) var(--space-l);
   margin-top: var(--space-2xl);
   padding-top: var(--space-m);
-  border-top: 1px solid rgba(207, 224, 221, 0.25);
+  border-top: 1px solid var(--line);
 }
 
 .site-footer__legal {

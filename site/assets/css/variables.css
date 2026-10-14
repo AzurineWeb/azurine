@@ -1,6 +1,8 @@
 /* ==========================================================================
    Variables du site Azurine — direction « éditorial doux »
-   Fond papier crème, deux couleurs : bleu-vert (teal) et mauve.
+   Palette choisie par la cliente (12/10/2026), d'après sa maquette : tout
+   sur fond blanc, prune grisé pour les titres et les boutons, rose poudré
+   en petites touches (encarts, formes), bleu pastel en rappel du papillon.
    Tailles de texte et espacements fluides (clamp) : ils s'ajustent seuls
    entre mobile et desktop. Point d'arrêt de mise en page unique :
    @media (min-width: 921px) (les variables CSS ne fonctionnent pas dans
@@ -10,20 +12,20 @@
 
 :root {
   /* --- Couleurs -------------------------------------------------------------- */
-  --paper: #fbf7f2;          /* fond principal */
-  --sand: #f2ebe2;           /* sections alternées */
+  --paper: #fff;             /* fond principal (blanc) */
+  --rose: #e5cdd2;           /* rose poudré : décor (filets, formes, sélection) */
+  --rose-pale: #f7eef0;      /* fond des petits encarts : avis, précautions, bons cadeaux (texte secondaire 6.7:1) */
   --white: #fff;             /* champs de formulaire, panneaux */
-  --line: #ddd3c7;           /* filets et bordures */
+  --line: #e8dde0;           /* filets et bordures (décor) */
+  --line-strong: #8f7f8d;    /* contour des champs de formulaire (3.8:1 sur blanc) */
 
-  --ink: #22383a;            /* texte principal (11.6:1 sur papier) */
-  --ink-soft: #506466;       /* texte secondaire (5.9:1 papier, 5.3:1 sable) */
-  --teal: #3d6466;           /* titres, liens (6.1:1 papier) */
-  --teal-brand: #5c8585;     /* teinte d'origine : décor et grands titres seulement */
-  --teal-deep: #24403f;      /* pied de page (texte papier 10.5:1) */
-  --mist: #cfe0dd;           /* texte secondaire sur teal-deep (8.2:1), sélection */
-
-  --mauve: #73588e;          /* boutons et accents (texte blanc 6:1, papier 5.6:1, sable 5:1) */
-  --mauve-hover: #5e4680;    /* texte blanc 7.9:1 */
+  --ink: #2f2731;            /* texte principal (14.4:1 sur blanc, 9.6:1 sur rose) */
+  --ink-soft: #5c4f5e;       /* texte secondaire (7.7:1 blanc, 5.1:1 rose) */
+  --plum: #695568;           /* prune grisé : titres, liens, boutons (6.8:1 blanc, 4.5:1 rose ; texte blanc 6.8:1) */
+  --plum-deep: #4b3c4b;      /* survol des boutons et des liens (texte blanc 10.3:1) */
+  --blue: #b9cde0;           /* bleu pastel : décor seulement, jamais pour du texte (1.6:1) */
+  --blue-pale: #e3ebf3;      /* disque bleu très pâle derrière le portrait */
+  --error: #9b3b55;          /* champ mal rempli (6.7:1 sur blanc) */
 
   /* --- Polices ----------------------------------------------------------------- */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -51,7 +53,7 @@
   --space-l: 32px;
   --space-xl: clamp(40px, 3vw + 28px, 56px);
   --space-2xl: clamp(56px, 5vw + 36px, 96px);
-  --section: clamp(64px, 7vw + 40px, 136px);   /* respiration entre sections */
+  --section: clamp(64px, 5vw + 40px, 104px);   /* respiration entre sections */
 
   --container: 1200px;
   --gutter: clamp(20px, 4vw, 40px);
@@ -63,8 +65,8 @@
   --radius-l: 28px;
   --radius-pill: 999px;
 
-  --shadow-soft: 0 18px 40px -24px rgba(34, 56, 58, 0.35);
-  --shadow-float: 0 12px 28px -12px rgba(34, 56, 58, 0.22);
+  --shadow-soft: 0 18px 40px -24px rgba(75, 60, 75, 0.35);
+  --shadow-float: 0 12px 28px -12px rgba(75, 60, 75, 0.22);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);   /* sortie exponentielle */
   --dur-fast: 0.2s;

@@ -6,7 +6,7 @@
   <!-- Référencement : titre (60 caractères maximum) et description (160 maximum) affichés par Google -->
   <title>Prendre rendez-vous au cabinet | Azurine, Carquefou</title>
   <meta name="description" content="Prenez rendez-vous au cabinet d'Azurine, 18 rue de la Salle à Carquefou, en ligne ou par téléphone au 06 62 41 94 03. Horaires, photos et plan d'accès.">
-  <meta name="theme-color" content="#fbf7f2">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Azurine">
@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://azurine.fr/assets/images/partage-azurine.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Logo Azurine, énergéticienne, et papillon posé sur une fleur de lavande">
+  <meta property="og:image:alt" content="Logo Azurine, énergéticienne, et papillon bleu posé sur un brin d'herbe">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://azurine.fr/prendre-rdv.html">
   <meta property="og:url" content="https://azurine.fr/prendre-rdv.html">
@@ -65,7 +65,11 @@
           <li class="main-nav__item"><a class="main-nav__link" href="avis.html">Avis</a></li>
         </ul>
         <a class="btn btn--primary btn--small main-nav__cta" href="prendre-rdv.html" aria-current="page">Prendre RDV</a>
+        <a class="main-nav__phone" href="tel:+33662419403"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6.5 3.5h2.6l1.6 4.2-2 1.3a11 11 0 0 0 6.3 6.3l1.3-2 4.2 1.6v2.6a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 4.5 5.6a2 2 0 0 1 2-2.1z"/></svg>06 62 41 94 03</a>
       </nav>
+
+      <!-- Bouton visible sur mobile seulement (sur ordinateur, celui du menu suffit) -->
+      <a class="btn btn--primary btn--small site-header__cta" href="prendre-rdv.html" aria-current="page">Prendre RDV</a>
 
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
         <span class="menu-toggle__bar"></span>
@@ -120,7 +124,7 @@
 
     <!-- Venir au cabinet (ancienne page salle-de-soin.html, redirigée ici dans _redirects).
          Plan d'accès : Google Maps n'est chargé qu'après un clic (il dépose des cookies) -->
-    <section class="section section--sand cabinet" id="cabinet" aria-labelledby="cabinet-title">
+    <section class="section cabinet" id="cabinet" aria-labelledby="cabinet-title">
       <div class="container">
         <div class="section-head">
           <h2 class="section-head__title" id="cabinet-title">Venir au cabinet</h2>
@@ -163,7 +167,7 @@
         <a class="site-footer__logo" href="index.html">
           <img src="assets/images/logo-azurine.png" alt="Azurine, énergéticienne – accueil" width="421" height="241" loading="lazy">
         </a>
-        <p>Énergéticienne à Carquefou.<br>Soins énergétiques, massages sonores et soins à distance.</p>
+        <p>Énergéticienne et magnétiseuse à Carquefou.<br>Soins énergétiques, massages sonores et soins à distance.</p>
       </div>
 
       <nav aria-labelledby="footer-soins">
@@ -203,6 +207,16 @@
       </ul>
       <p>© 2026 Azurine</p>
     </div>
+    <svg class="sprig site-footer__sprig" viewBox="0 0 100 140" aria-hidden="true" focusable="false">
+      <path class="sprig__stem" d="M18 138C34 106 54 70 82 8"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(26 122) rotate(-155)"/>
+      <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(33 108) rotate(-25)"/>
+      <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(42 90) rotate(-150)"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(51 72) rotate(-20)"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(62 50) rotate(-145)"/>
+      <path class="sprig__leaf--blue" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(73 28) rotate(-15)"/>
+      <path class="sprig__leaf--rose" d="M0 0C5-7 17-8 25-2C17 4 6 5 0 0Z" transform="translate(81 10) rotate(-70) scale(0.7)"/>
+    </svg>
   </footer>
 </body>
 </html>
