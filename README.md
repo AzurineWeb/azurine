@@ -74,6 +74,7 @@ endroits, un commentaire `<!-- … -->` dans le code le rappelle.
 | Les modes de **règlement** | `tarifs.html` (seul endroit) |
 | Le lien de **réservation en ligne** (Cal.com) | `prendre-rdv.html` (seul endroit) ; si l'outil change, aussi `confidentialite.html` et `mentions-legales.html` |
 | Les **questions fréquentes** | `index.html`, section « Questions fréquentes » (un bloc `<details>` par question) |
+| Les **questions des pages de soins** | `soin-energetique.html`, `massage-sonore.html` : un bloc `<details class="faq__item">` par question, même modèle que la FAQ de l'accueil |
 | Un **avis** | `avis.html` : mode d'emploi en commentaire dans la page |
 | Les **avis Google automatiques** (préparés, pas encore activés) | guide `guide-avis-google.pdf` remis à part ; réglages en haut de `assets/js/avis-google.js` |
 | Le **texte d'un soin** | la page du soin |
