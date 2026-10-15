@@ -23,6 +23,7 @@ site/                      LE SITE (seul dossier mis en ligne)
   404.html                 Page « introuvable »
   assets/                  CSS, JavaScript, polices, images, icônes
   favicon.ico, site.webmanifest, sitemap.xml, robots.txt, _redirects, _headers
+  llms.txt                 Résumé du site pour les IA (ChatGPT, Perplexity…), sans prix ni horaires
 sources/                   Fichiers de travail non publiés (icône en grand format)
 netlify.toml               Réglage Netlify : publier le dossier site/
 ```
@@ -81,7 +82,8 @@ endroits, un commentaire `<!-- … -->` dans le code le rappelle.
 | La **présentation de Karine** | `qui-suis-je.html` |
 | Le **téléphone**, l'**e-mail**, l'**adresse** | toutes les pages (pied de page) : utiliser *Édition → Remplacer dans les fichiers* (`Ctrl+Maj+H`) ; aussi les informations pour Google en haut de `index.html` |
 | Le **menu** | toutes les pages (en-tête) |
-| Une **photo** | remplacer le fichier dans `site/assets/images/` en gardant **exactement le même nom** (JPG, environ 1200 px de large, moins de 300 Ko) |
+| Un **soin**, l'**adresse** ou le **téléphone** dans le résumé pour les IA | `llms.txt` |
+| Une **photo** | remplacer le fichier dans `site/assets/images/` en gardant **exactement le même nom** (JPG, environ 1200 px de large, moins de 300 Ko). Les visiteurs déjà venus peuvent voir l'ancienne photo pendant 1 jour (cache, `_headers`) |
 | Le titre et la description d'une page **dans Google** | les lignes `<title>` et `<meta name="description">` en haut de la page |
 
 À ne pas modifier sans connaître le CSS : `site/assets/css/` (couleurs, polices, mise en page).
