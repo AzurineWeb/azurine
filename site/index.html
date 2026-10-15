@@ -41,13 +41,16 @@
     "@type": "WebSite",
     "name": "Azurine",
     "alternateName": ["Azurine énergéticienne", "azurine.fr"],
-    "url": "https://azurine.fr/"
+    "url": "https://azurine.fr/",
+    "inLanguage": "fr-FR",
+    "publisher": { "@id": "https://azurine.fr/#azurine" }
   }
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
+    "@id": "https://azurine.fr/#azurine",
     "name": "Azurine",
     "legalName": "Association AZURINE",
     "description": "Énergéticienne et magnétiseuse à Carquefou : soin énergétique, massage sonore aux bols tibétains et soin à distance.",
@@ -65,7 +68,16 @@
     },
     "geo": { "@type": "GeoCoordinates", "latitude": 47.30054, "longitude": -1.45018 },
     "areaServed": ["Carquefou", "Nantes", "Sainte-Luce-sur-Loire", "Thouaré-sur-Loire", "La Chapelle-sur-Erdre"],
-    "founder": { "@type": "Person", "name": "Karine Eude", "jobTitle": "Énergéticienne et magnétiseuse" },
+    "founder": { "@type": "Person", "@id": "https://azurine.fr/qui-suis-je.html#karine", "name": "Karine Eude", "jobTitle": "Énergéticienne et magnétiseuse" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Soins proposés",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@id": "https://azurine.fr/soin-energetique.html#soin" } },
+        { "@type": "Offer", "itemOffered": { "@id": "https://azurine.fr/massage-sonore.html#soin" } },
+        { "@type": "Offer", "itemOffered": { "@id": "https://azurine.fr/soin-a-distance.html#soin" } }
+      ]
+    },
     "sameAs": ["https://www.instagram.com/azurine_energeticienne"]
   }
   </script>

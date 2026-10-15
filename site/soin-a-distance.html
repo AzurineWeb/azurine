@@ -32,6 +32,58 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <script src="assets/js/main.js" defer></script>
+  <!-- Informations pour Google et les IA (données structurées), sans prix ni horaires.
+       Adresse, téléphone : voir aussi le bloc en haut de index.html -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://azurine.fr/soin-a-distance.html#soin",
+        "name": "Soin énergétique à distance",
+        "serviceType": "Soin énergétique à distance",
+        "description": "Soin énergétique à distance, depuis chez soi. Renseignements et rendez-vous uniquement par téléphone. Prestation de bien-être, qui ne remplace pas un avis médical.",
+        "url": "https://azurine.fr/soin-a-distance.html",
+        "provider": {
+          "@id": "https://azurine.fr/#azurine"
+        },
+        "areaServed": [
+          "Carquefou",
+          "Nantes",
+          "Sainte-Luce-sur-Loire",
+          "Thouaré-sur-Loire",
+          "La Chapelle-sur-Erdre"
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "servicePhone": {
+            "@type": "ContactPoint",
+            "telephone": "+33662419403",
+            "contactType": "rendez-vous"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://azurine.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Soin à distance",
+            "item": "https://azurine.fr/soin-a-distance.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>

@@ -80,9 +80,9 @@ endroits, un commentaire `<!-- … -->` dans le code le rappelle.
 | Les **avis Google automatiques** (préparés, pas encore activés) | guide `guide-avis-google.pdf` remis à part ; réglages en haut de `assets/js/avis-google.js` |
 | Le **texte d'un soin** | la page du soin |
 | La **présentation de Karine** | `qui-suis-je.html` |
-| Le **téléphone**, l'**e-mail**, l'**adresse** | toutes les pages (pied de page) : utiliser *Édition → Remplacer dans les fichiers* (`Ctrl+Maj+H`) ; aussi les informations pour Google en haut de `index.html` |
+| Le **téléphone**, l'**e-mail**, l'**adresse** | toutes les pages (pied de page) : utiliser *Édition → Remplacer dans les fichiers* (`Ctrl+Maj+H`) ; aussi les informations pour Google en haut de `index.html` (et le téléphone en haut de `soin-a-distance.html`), et `llms.txt` |
 | Le **menu** | toutes les pages (en-tête) |
-| Un **soin**, l'**adresse** ou le **téléphone** dans le résumé pour les IA | `llms.txt` |
+| Un **soin** (nom, durée, public) | la page du soin, sa description pour Google en haut de la page, et `llms.txt` |
 | Une **photo** | remplacer le fichier dans `site/assets/images/` en gardant **exactement le même nom** (JPG, environ 1200 px de large, moins de 300 Ko). Les visiteurs déjà venus peuvent voir l'ancienne photo pendant 1 jour (cache, `_headers`) |
 | Le titre et la description d'une page **dans Google** | les lignes `<title>` et `<meta name="description">` en haut de la page |
 
