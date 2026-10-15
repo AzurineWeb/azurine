@@ -1,3 +1,9 @@
+# Tous les robots peuvent lire tout le site : moteurs de recherche (Google, Bing),
+# moteurs de recherche des IA (OAI-SearchBot de ChatGPT, PerplexityBot, Claude-SearchBot…)
+# et robots qui entraînent les IA (GPTBot, Google-Extended, ClaudeBot, CCBot…).
+# Pour refuser seulement l'entraînement des IA, ajouter un bloc par robot, par exemple :
+#   User-agent: GPTBot
+#   Disallow: /
 User-agent: *
 Allow: /
 

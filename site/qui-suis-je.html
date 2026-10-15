@@ -32,6 +32,59 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
   <script src="assets/js/main.js" defer></script>
+  <!-- Informations pour Google et les IA (données structurées), sans prix ni horaires.
+       Adresse, téléphone : voir aussi le bloc en haut de index.html -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://azurine.fr/qui-suis-je.html#karine",
+        "name": "Karine Eude",
+        "givenName": "Karine",
+        "familyName": "Eude",
+        "jobTitle": "Énergéticienne et magnétiseuse",
+        "image": "https://azurine.fr/assets/images/karine-portrait.jpg",
+        "url": "https://azurine.fr/qui-suis-je.html",
+        "worksFor": {
+          "@id": "https://azurine.fr/#azurine"
+        },
+        "workLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Carquefou",
+            "postalCode": "44470",
+            "addressCountry": "FR"
+          }
+        },
+        "knowsAbout": [
+          "Soin énergétique",
+          "Magnétisme",
+          "Massage sonore aux bols tibétains"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://azurine.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Qui suis-je ?",
+            "item": "https://azurine.fr/qui-suis-je.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -82,7 +135,7 @@
   <main id="contenu">
     <section class="about">
       <div class="container about__inner">
-        <img class="about__portrait media shape-egg" src="assets/images/karine-portrait.jpg" alt="Portrait de Karine, énergéticienne et magnétiseuse" width="1000" height="1333">
+        <img class="about__portrait media shape-egg" src="assets/images/karine-portrait.jpg" alt="Portrait de Karine, énergéticienne et magnétiseuse" width="1000" height="1333" fetchpriority="high">
 
         <div class="about__text">
           <h1 class="about__title">Qui suis-je ?</h1>
